@@ -39,6 +39,9 @@ struct GameView: View {
                 BottomGameBar(viewModel: viewModel)
             }
         }
+        .onDisappear {
+            viewModel.stopTimer()
+        }
         .navigationBarHidden(true)
     }
 }

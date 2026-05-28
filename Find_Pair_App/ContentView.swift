@@ -26,7 +26,7 @@ struct ContentView: View {
                     }
                     
                     VStack(spacing: 15) {
-                        Text("📋 Уровни:")
+                        Text("Уровни:")
                             .font(.headline)
                             .foregroundColor(.white)
                     }
@@ -35,7 +35,7 @@ struct ContentView: View {
                         showGame = true
                     }) {
                         HStack {
-                            Text("🎮 Начать игру")
+                            Text("Начать игру")
                                 .font(.title2)
                                 .fontWeight(.semibold)
                         }

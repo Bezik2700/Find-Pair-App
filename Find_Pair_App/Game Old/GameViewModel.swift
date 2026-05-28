@@ -8,6 +8,15 @@ class GameViewModel: ObservableObject {
     @Published var isHintActive = false
     @Published var totalPairs = 0
     
+    @Published var clickLimit: Int = 0
+    @Published var clicksRemaining: Int = 0
+    @Published var isClickLimitExceeded = false
+    
+    @Published var timeLimit: Int = 0  // Лимит времени в секундах
+    @Published var timeRemaining: Int = 0  // Оставшееся время
+    @Published var isTimeUp = false  // Флаг окончания времени
+    private var timer: Timer?  // Таймер
+    
     @Published var currentLevel = 1 {
         didSet {
             UserDefaults.standard.set(currentLevel, forKey: "currentLevel")
@@ -44,6 +53,65 @@ class GameViewModel: ObservableObject {
         self.currentHints = savedCurrentHints > 0 ? savedCurrentHints : 0
             
         setupLevel()
+    }
+    
+    func startTimer() {
+        guard timeLimit > 0 else { return }
+        
+        timeRemaining = timeLimit
+        isTimeUp = false
+        
+        timer?.invalidate()
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
+            guard let self = self else { return }
+            
+            if self.timeRemaining > 0 {
+                self.timeRemaining -= 1
+            } else {
+                self.isTimeUp = true
+                self.stopTimer()
+            }
+        }
+    }
+
+    func stopTimer() {
+        timer?.invalidate()
+        timer = nil
+    }
+    
+    private func getTimeLimit(for levelNumber: Int) -> Int {
+        let limitLevel = levelNumber / 5  // 0, 1, 2, 3...
+        
+        if levelNumber % 5 == 0 {
+            // Уровни 5, 10, 15, 20...
+            switch limitLevel {
+            case 1: return 30   // Уровень 5: 30 секунд
+            case 2: return 45   // Уровень 10: 45 секунд
+            case 3: return 60   // Уровень 15: 60 секунд
+            case 4: return 75   // Уровень 20: 75 секунд
+            case 5: return 90   // Уровень 25: 90 секунд
+            default: return limitLevel * 15 + 15  // Дальше +15 секунд за уровень
+            }
+        }
+        
+        return 0  // 0 означает без ограничений
+    }
+    
+    private func getClickLimit(for levelNumber: Int) -> Int {
+        let limitLevel = levelNumber / 4
+        
+        if levelNumber % 4 == 0 {
+            switch limitLevel {
+            case 1: return 15
+            case 2: return 25
+            case 3: return 35
+            case 4: return 45
+            case 5: return 55
+            default: return limitLevel * 10
+            }
+        }
+        
+        return 0
     }
     
     private func getContentType(for levelNumber: Int) -> ContentType {
@@ -186,6 +254,21 @@ class GameViewModel: ObservableObject {
         let level = getLevel(for: currentLevel)
         totalPairs = level.pairs
         let contents: [String]
+        
+        clickLimit = getClickLimit(for: currentLevel)
+        clicksRemaining = clickLimit
+        isClickLimitExceeded = false
+        
+        timeLimit = getTimeLimit(for: currentLevel)
+        timeRemaining = timeLimit
+        isTimeUp = false
+            
+        // Запускаем таймер если есть лимит
+        if timeLimit > 0 {
+            startTimer()
+        } else {
+            stopTimer()
+        }
 
         switch level.type {
         case .emoji:
@@ -220,9 +303,19 @@ class GameViewModel: ObservableObject {
     
     func selectCard(_ card: Card) {
         guard !isProcessing,
+              !isTimeUp,
+              !isClickLimitExceeded,
               let index = cards.firstIndex(where: { $0.id == card.id }),
               !cards[index].isMatched,
               !cards[index].isFaceUp else { return }
+        
+        if clickLimit > 0 {
+            guard clicksRemaining > 0 else {
+                isClickLimitExceeded = true
+                return
+            }
+            clicksRemaining -= 1
+        }
         
         cards[index].isFaceUp = true
         
@@ -255,6 +348,14 @@ class GameViewModel: ObservableObject {
                 self.resetSelection()
                 
                 if self.matchedPairs == self.totalPairs {
+                    if self.isTimeUp {
+                        return  // Время вышло - не переходим
+                    }
+                    if self.clickLimit > 0 && self.clicksRemaining < 0 {
+                    self.isClickLimitExceeded = true
+                    return  // Не переходим на следующий уровень
+                    }
+                    self.stopTimer()
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
                         self.nextLevel()
                     }
@@ -339,6 +440,14 @@ class GameViewModel: ObservableObject {
         currentLevel = 1
         currentHints = 0
         maxLevel = 1
+        clickLimit = 0
+        clicksRemaining = 0
+        isClickLimitExceeded = false
+        timeLimit = 0
+        timeRemaining = 0
+        isTimeUp = false
+        stopTimer()
+        UserDefaults.standard.set(0, forKey: "currentHint")
         UserDefaults.standard.set(1, forKey: "currentLevel")
         UserDefaults.standard.set(1, forKey: "maxLevel")
         setupLevel()
@@ -359,6 +468,12 @@ class GameViewModel: ObservableObject {
             }
         }
         return .gray
+    }
+    
+    func formatTime(_ seconds: Int) -> String {
+        let minutes = seconds / 60
+        let remainingSeconds = seconds % 60
+        return String(format: "%02d:%02d", minutes, remainingSeconds)
     }
     
     private func resetSelection() {
