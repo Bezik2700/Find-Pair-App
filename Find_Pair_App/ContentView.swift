@@ -1,7 +1,5 @@
 import SwiftUI
 import YandexMobileAds
-import UIKit
-import Combine
 
 struct ContentView: View {
     
@@ -13,7 +11,6 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                
                 LinearGradient(
                     gradient: Gradient(colors: [Color.blue.opacity(0.6), Color.purple.opacity(0.6)]),
                     startPoint: .topLeading,
@@ -48,31 +45,24 @@ struct ContentView: View {
                     Spacer()
                     
                     Button(action: {
-                                    // Вызываем показ рекламы
-                                    rewardedManager.showAd {
-                                        // ЭТОТ БЛОК КОДА СРАБОТАЕТ СТРОГО ПОСЛЕ УСПЕШНОГО ПРОСМОТРА:
-                                        // hintsCount += 1 // Выдаем награду игроку
-                                    }
-                                }) {
-                                    HStack {
-                                        Image(systemName: "play.rectangle.fill")
-                                        Text(rewardedManager.isAdReady ? "Подсказка за рекламу (+1)" : "Загрузка видео...")
-                                    }
-                                    .font(.headline)
-                                    .foregroundColor(.white)
-                                    .padding()
-                                    .frame(maxWidth: .infinity)
-                                    .background(rewardedManager.isAdReady ? Color.green : Color.gray)
-                                    .cornerRadius(12)
-                                }
-                                .disabled(!rewardedManager.isAdReady)
-                                .padding(.horizontal, 30)
-                    
-                    YandexBanner()
-                        .frame(height: 100)
-                        .background(Color(.systemBackground))
-                        .padding(.horizontal, 12) 
-                        .padding(.bottom, 20)
+                        rewardedManager.showAd {
+                        currentHints += 5
+                        difficultCurrentHints += 5
+                        }
+                    }) {
+                        HStack {
+                            Image(systemName: "play.rectangle.fill")
+                            Text(rewardedManager.isAdReady ? "Подсказка за рекламу (+10)" : "Загрузка видео...")
+                            }
+                            .font(.headline)
+                            .foregroundColor(.white)
+                            .padding()
+                            .frame(maxWidth: .infinity)
+                            .background(rewardedManager.isAdReady ? Color.green : Color.gray)
+                            .cornerRadius(12)
+                        }
+                    .disabled(!rewardedManager.isAdReady)
+                    .padding(.horizontal, 30)
                     
                 }
                 .padding(.top, 100)

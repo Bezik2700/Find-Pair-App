@@ -2,7 +2,7 @@ import SwiftUI
 import Combine
 
 struct DifficultyMain: View {
-    @StateObject private var viewModel = DifficultyViewModel()
+    @StateObject private var difficultViewModel = DifficultyViewModel()
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
@@ -16,20 +16,20 @@ struct DifficultyMain: View {
             
             VStack(spacing: 15) {
                 
-                TopDifficultyBar(viewModel: DifficultyViewModel())
+                TopGameBar(viewModel: difficultViewModel)
                 
                 Spacer()
                 
                 LazyVGrid(
                     columns: Array(repeating: GridItem(.flexible(), spacing: 8),
-                                  count: viewModel.columns),
+                                  count: difficultViewModel.columns),
                     spacing: 8
                 ) {
-                    ForEach(viewModel.cards) { card in
-                        DifficultyCardView(card: card)
+                    ForEach(difficultViewModel.cards) { card in
+                        DifficultyCardView(card: card) 
                             .onTapGesture {
                                 withAnimation(.easeInOut(duration: 0.3)) {
-                                    viewModel.selectCard(card)
+                                    difficultViewModel.selectCard(card)
                                 }
                             }
                     }
@@ -38,7 +38,18 @@ struct DifficultyMain: View {
                 
                 Spacer()
                 
-                BottomDifficultyBar(viewModel: DifficultyViewModel())
+                Button(action: {
+                    difficultViewModel.resetProgress()
+                }) {
+                    HStack {
+                        Text("reset")
+                            .font(.title2)
+                            .fontWeight(.semibold)
+                    }
+                }
+                
+                
+                BottomGameBar()
             }
         }
         .navigationBarHidden(true)

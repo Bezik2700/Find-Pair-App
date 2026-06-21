@@ -36,7 +36,17 @@ struct GameView: View {
                 
                 Spacer()
                 
-                BottomGameBar(viewModel: viewModel)
+                Button(action: {
+                    viewModel.resetProgress()
+                }) {
+                    HStack {
+                        Text("reset")
+                            .font(.title2)
+                            .fontWeight(.semibold)
+                    }
+                }
+                
+                BottomGameBar()
             }
         }
         .onDisappear {
