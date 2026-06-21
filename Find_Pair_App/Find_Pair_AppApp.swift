@@ -14,6 +14,15 @@ struct Find_Pair_AppApp: App {
     var body: some Scene {
         WindowGroup {
             SplashScreenView()
+                .onAppear {
+                    SoundManager.shared.playBackgroundMusic("fon_sound")
+                }
+                .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)) { _ in
+                    SoundManager.shared.pauseBackgroundMusic()
+                }
+                .onReceive(NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)) { _ in
+                    SoundManager.shared.resumeBackgroundMusic()
+            }
         }
     }
 }

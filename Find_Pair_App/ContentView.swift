@@ -6,17 +6,24 @@ struct ContentView: View {
     let rewardedManager = YandexRewardedManager.shared
     
     @State private var showGame = false
+    @State private var showGameSetiings = false
     @State private var showDifficultyGame = false
+    
+    @AppStorage("currentHints") private var currentHints = 0
+    @AppStorage("selectedTheme") private var selectedTheme = "test_1"
+    @AppStorage("difficultCurrentHints") private var difficultCurrentHints = 0
     
     var body: some View {
         NavigationStack {
             ZStack {
-                LinearGradient(
-                    gradient: Gradient(colors: [Color.blue.opacity(0.6), Color.purple.opacity(0.6)]),
-                    startPoint: .topLeading,
-                    endPoint: .bottomTrailing
-                )
-                .ignoresSafeArea()
+                
+                Image(selectedTheme)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .ignoresSafeArea()
+                                
+                Color.black.opacity(0.5)
+                    .ignoresSafeArea()
                 
                 VStack(spacing: 40) {
                     
@@ -30,7 +37,15 @@ struct ContentView: View {
                         }
                     }
                     
-                    Spacer()
+                    Button(action: {
+                        showGameSetiings = true
+                    }) {
+                        HStack {
+                            Text("настройки")
+                                .font(.title2)
+                                .fontWeight(.semibold)
+                        }
+                    }
                     
                     Button(action: {
                         showDifficultyGame = true
@@ -72,6 +87,9 @@ struct ContentView: View {
             }
             .navigationDestination(isPresented: $showDifficultyGame) {
                 DifficultyMain()
+            }
+            .navigationDestination(isPresented: $showGameSetiings) {
+                GameSettings()
             }
         }
     }

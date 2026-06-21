@@ -73,7 +73,7 @@ struct TopGameBar<VM: TopBarViewModelProtocol>: View {
         }
         .padding()
         .background(Color.black.opacity(0.5))
-        .cornerRadius(15)
+        .cornerRadius(30)
         .padding(.horizontal, 4)
         .padding(.vertical, 6)
         .frame(height: 120)

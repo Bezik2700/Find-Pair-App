@@ -151,6 +151,7 @@ class DifficultyViewModel: ObservableObject {
             }
             self.isHintActive = false
         }
+        SoundManager.shared.playHintSound()
     }
 
     
