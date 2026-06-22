@@ -28,7 +28,7 @@ struct GameSettings: View {
                     .fontWeight(.bold)
                     .foregroundColor(.white)
                 
-                HStack(spacing: 10) {
+                HStack(spacing: 15) {
                     LazyVGrid(columns: columns, spacing: 20) {
                         ForEach(imageNames, id: \.self) { imageName in
                             ZStack {
@@ -58,12 +58,6 @@ struct GameSettings: View {
                     }
                 }
                 VStack(spacing: 30) {
-                    Text("🔊 Звук")
-                        .font(.title)
-                        .fontWeight(.bold)
-                        .foregroundColor(.white)
-                    
-                    // Музыка
                     VStack(spacing: 15) {
                         Toggle(isOn: $isMusicEnabled) {
                             HStack {
@@ -75,9 +69,9 @@ struct GameSettings: View {
                         .tint(.green)
                         .onChange(of: isMusicEnabled) { _, enabled in
                             if enabled {
-                                SoundManager.shared.resumeBackgroundMusic()
+                                SoundManager.shared.playBackgroundMusic("fon_sound")
                             } else {
-                                SoundManager.shared.pauseBackgroundMusic()
+                                SoundManager.shared.stopBackgroundMusic()
                             }
                         }
                     }

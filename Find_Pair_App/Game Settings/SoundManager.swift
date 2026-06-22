@@ -4,21 +4,27 @@ import Combine
 class SoundManager {
     
     static let shared = SoundManager()
-    
+        
     private var backgroundPlayer: AVAudioPlayer?
     private var effectPlayer: AVAudioPlayer?
-    
-    @Published var isMusicEnabled: Bool {
-        didSet { UserDefaults.standard.set(isMusicEnabled, forKey: "isMusicEnabled") }
+        
+    var isMusicEnabled: Bool {
+        get { UserDefaults.standard.bool(forKey: "isMusicEnabled") }
+        set { UserDefaults.standard.set(newValue, forKey: "isMusicEnabled") }
     }
-    
-    @Published var isSoundEnabled: Bool {
-        didSet { UserDefaults.standard.set(isSoundEnabled, forKey: "isSoundEnabled") }
+        
+    var isSoundEnabled: Bool {
+        get { UserDefaults.standard.bool(forKey: "isSoundEnabled") }
+        set { UserDefaults.standard.set(newValue, forKey: "isSoundEnabled") }
     }
-    
+        
     private init() {
-        self.isMusicEnabled = UserDefaults.standard.object(forKey: "isMusicEnabled") as? Bool ?? true
-        self.isSoundEnabled = UserDefaults.standard.object(forKey: "isSoundEnabled") as? Bool ?? true
+        if UserDefaults.standard.object(forKey: "isMusicEnabled") == nil {
+            UserDefaults.standard.set(true, forKey: "isMusicEnabled")
+        }
+        if UserDefaults.standard.object(forKey: "isSoundEnabled") == nil {
+            UserDefaults.standard.set(true, forKey: "isSoundEnabled")
+        }
     }
     
     func playBackgroundMusic(_ fileName: String) {
