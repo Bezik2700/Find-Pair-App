@@ -18,7 +18,7 @@ struct TopGameBar<VM: TopBarViewModelProtocol>: View {
                 Spacer()
                 
                 VStack(spacing: 5) {
-                    Text("Уровень \(viewModel.currentLevelDisplay)")
+                    Text("level \(viewModel.currentLevelDisplay)")
                         .font(.title)
                         .fontWeight(.bold)
                         .foregroundColor(.white)
@@ -39,6 +39,7 @@ struct TopGameBar<VM: TopBarViewModelProtocol>: View {
                                 .foregroundColor(viewModel.clicksRemaining > 0 ? .white : .red)
                             Text("\(viewModel.clicksRemaining)/\(viewModel.clickLimit)")
                                 .font(.title3)
+                                .foregroundColor(viewModel.clicksRemaining > 0 ? .white : .red)
                         }
                     }
                 }
@@ -74,9 +75,8 @@ struct TopGameBar<VM: TopBarViewModelProtocol>: View {
         .padding()
         .background(Color.black.opacity(0.5))
         .cornerRadius(30)
-        .padding(.horizontal, 4)
-        .padding(.vertical, 6)
-        .frame(height: 120)
+        .padding(.horizontal)
+        .frame(height: 100)
         .frame(maxWidth: .infinity)
     }
 }

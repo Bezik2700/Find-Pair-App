@@ -3,7 +3,7 @@ import SwiftUI
 struct SplashScreenView: View {
     @State private var isActive = false
     @State private var progress: Double = 0
-    let title = "Найди пару"
+    let title = "app_name"
     
     var body: some View {
         if isActive {

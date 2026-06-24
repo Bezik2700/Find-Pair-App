@@ -7,27 +7,27 @@ struct YandexBanner: UIViewRepresentable {
     @MainActor
     class Coordinator: NSObject, BannerAdViewDelegate {
         func bannerAdViewDidLoad(_ bannerAdView: BannerAdView) {
-            print("Яндекс Реклама: Баннер успешно загружен.")
+            print("Ads: banner download")
         }
 
         func bannerAdViewDidFailLoading(_ bannerAdView: BannerAdView, error: Error) {
-            print("Яндекс Реклама: Ошибка загрузки — \(error.localizedDescription)")
+            print("Ads: error downloading — \(error.localizedDescription)")
         }
 
         func bannerAdViewDidClick(_ bannerAdView: BannerAdView) {
-            print("Яндекс Реклама: Зафиксирован клик по баннеру.")
+            print("Ads: banner click")
         }
 
         func bannerAdViewWillPresentScreen(_ bannerAdView: BannerAdView) {
-            print("Яндекс Реклама: Открытие окна поверх приложения.")
+            print("Ads: on up screen")
         }
 
         func bannerAdViewDidDismissScreen(_ bannerAdView: BannerAdView) {
-            print("Яндекс Реклама: Пользователь вернулся в приложение.")
+            print("Ads: user in app")
         }
 
         func bannerAdView(_ bannerAdView: BannerAdView, didTrackImpression impressionData: ImpressionData?) {
-            print("Яндекс Реклама: Показ баннера успешно засчитан.")
+            print("Ads: banner plus +")
         }
     }
 
@@ -37,34 +37,26 @@ struct YandexBanner: UIViewRepresentable {
 
     func makeUIView(context: Context) -> UIView {
         let containerView = UIView()
-        
-        // СОВРЕМЕННЫЙ СПОСОБ (iOS 26+): Получаем ширину экрана через контекст Window Scene
-        // Если сцена еще не привязана, безопасно берем стандартную ширину устройства
         let windowWidth: CGFloat
         if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
             windowWidth = windowScene.screen.bounds.width - 24
         } else {
-            windowWidth = 350 // Дефолтное значение-заглушка до отрисовки интерфейса
+            windowWidth = 350
         }
         
-        // Передаем корректную ширину из контекста сцены
         let adSize = BannerAdSize.sticky(containerWidth: windowWidth)
         
         let bannerView = BannerAdView(adSize: adSize)
         bannerView.delegate = context.coordinator
         
-        // Задаем размеры отображения
         bannerView.frame = CGRect(x: 0, y: 0, width: windowWidth, height: 100)
         containerView.addSubview(bannerView)
         
-        // Загрузка
         let request = AdRequest(adUnitID: adUnitId)
         bannerView.loadAd(with: request)
         
         return containerView
     }
 
-    func updateUIView(_ uiView: UIView, context: Context) {
-        // Оставляем пустым
-    }
+    func updateUIView(_ uiView: UIView, context: Context) {}
 }

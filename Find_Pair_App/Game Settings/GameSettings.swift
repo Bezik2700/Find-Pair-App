@@ -4,8 +4,8 @@ struct GameSettings: View {
     
     @AppStorage("isMusicEnabled") private var isMusicEnabled = true
     @AppStorage("isSoundEnabled") private var isSoundEnabled = true
-    
     @AppStorage("selectedTheme") private var selectedTheme = "test_1"
+    
     let imageNames: [String] = ["test_1", "test_2", "test_3", "test_4", "test_5", "test_6", "test_7", "test_8", "test_9"]
     let columns = Array(repeating: GridItem(.flexible(), spacing: 15), count: 3)
     
@@ -23,7 +23,7 @@ struct GameSettings: View {
                 .ignoresSafeArea()
             
             VStack(spacing: 30) {
-                Text("Выбери тему")
+                Text("game_background")
                     .font(.title)
                     .fontWeight(.bold)
                     .foregroundColor(.white)
@@ -62,7 +62,7 @@ struct GameSettings: View {
                         Toggle(isOn: $isMusicEnabled) {
                             HStack {
                                 Image(systemName: "music.note")
-                                Text("Фоновая музыка")
+                                Text("game_music")
                             }
                             .foregroundColor(.white)
                         }
@@ -83,7 +83,7 @@ struct GameSettings: View {
                         Toggle(isOn: $isSoundEnabled) {
                             HStack {
                                 Image(systemName: "speaker.wave.2")
-                                Text("Звуковые эффекты")
+                                Text("game_sound")
                             }
                             .foregroundColor(.white)
                         }

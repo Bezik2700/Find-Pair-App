@@ -31,7 +31,7 @@ struct ContentView: View {
                         showGame = true
                     }) {
                         HStack {
-                            Text("Начать игру")
+                            Text("Start easy")
                                 .font(.title2)
                                 .fontWeight(.semibold)
                         }
@@ -41,7 +41,7 @@ struct ContentView: View {
                         showGameSetiings = true
                     }) {
                         HStack {
-                            Text("настройки")
+                            Text("Settings")
                                 .font(.title2)
                                 .fontWeight(.semibold)
                         }
@@ -51,7 +51,7 @@ struct ContentView: View {
                         showDifficultyGame = true
                     }) {
                         HStack {
-                            Text("Начать трудную игру")
+                            Text("Start difficult")
                                 .font(.title2)
                                 .fontWeight(.semibold)
                         }
@@ -67,7 +67,7 @@ struct ContentView: View {
                     }) {
                         HStack {
                             Image(systemName: "play.rectangle.fill")
-                            Text(rewardedManager.isAdReady ? "Подсказка за рекламу (+10)" : "Загрузка видео...")
+                            Text(rewardedManager.isAdReady ? "ads_bonus" : "loading...")
                             }
                             .font(.headline)
                             .foregroundColor(.white)
@@ -93,4 +93,16 @@ struct ContentView: View {
             }
         }
     }
+}
+
+#Preview {
+    // 1. Предварительно записываем тестовые данные в UserDefaults для @AppStorage
+    let _ = {
+        UserDefaults.standard.set(10, forKey: "currentHints")
+        UserDefaults.standard.set("test_1", forKey: "selectedTheme")
+        UserDefaults.standard.set(10, forKey: "difficultCurrentHints")
+    }()
+    
+    // 2. Возвращаем сам экран без передачи внутренних параметров в инициализатор
+    return ContentView()
 }
