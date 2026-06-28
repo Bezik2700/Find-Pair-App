@@ -13,34 +13,44 @@
     "%lld/%lld" : {
 
     },
-    "ads_bonus" : {
+    "ad_not_ready" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ads bonus"
+            "value" : "The advertisement has not loaded; please wait."
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "бонус за рекламу"
+            "value" : "Реклама не загружена, пожалуйста подождите."
           }
         }
       }
     },
-    "game_background" : {
+    "add" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "game background"
+            "value" : "add"
+          }
+        }
+      }
+    },
+    "add_hints" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Advertising viewed, bonus awarded (+ 5 tips)."
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "фон игры"
+            "value" : "Реклама просмотрена, бонус начислен (+ 5 подсказок)."
           }
         }
       }
@@ -93,18 +103,34 @@
         }
       }
     },
-    "loading..." : {
+    "notification" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "loading"
+            "value" : "Notification"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Уведомление"
+          }
+        }
+      }
+    },
+    "ok" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ok"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "загрузка"
+            "value" : "ок"
           }
         }
       }
@@ -125,56 +151,57 @@
         }
       }
     },
-    "Settings" : {
+    "restart" : {
+
+    },
+    "start_difficult" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Settings"
+            "value" : "Start a difficult game"
           }
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Настройки"
+            "state" : "needs_review",
+            "value" : "Начать сложную игру"
           }
         }
       }
     },
-    "Start difficult" : {
+    "start_easy" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Start difficult"
+            "value" : "Start an easy game"
           }
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Начать сложную"
-          }
-        }
-      }
-    },
-    "Start easy" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Start easy"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Начать легкую"
+            "state" : "needs_review",
+            "value" : "Начать легкую игру"
           }
         }
       }
     },
     "Попробовать снова" : {
-
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Restart"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Заново"
+          }
+        }
+      }
     }
   },
   "version" : "1.2"

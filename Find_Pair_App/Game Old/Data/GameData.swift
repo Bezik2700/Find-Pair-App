@@ -75,29 +75,16 @@ struct GameData {
     
     static func getLevelConfig(for levelNumber: Int) -> (pairs: Int, columns: Int, rows: Int) {
         switch levelNumber {
-        case 1...2:  return (2, 2, 2)
-        case 3...4:  return (4, 3, 3)
-        case 5...6:  return (6, 3, 4)
-        case 7...8:  return (8, 4, 4)
-        case 9...10: return (10, 4, 5)
-        case 11...12: return (12, 4, 6)
-        case 13...14: return (15, 5, 6)
-        case 15...16: return (17, 5, 7)
-        case 17...18: return (21, 6, 7)
+        case 1...4:  return (2, 2, 2)
+        case 5...10:  return (4, 3, 3)
+        case 11...16:  return (6, 3, 4)
+        case 17...23:  return (8, 4, 4)
+        case 24...30: return (10, 4, 5)
+        case 31...42: return (12, 5, 5)
+        case 43...51: return (15, 5, 6)
+        case 52...64: return (17, 5, 7)
+        case 65...80: return (21, 6, 7)
         default:      return (24, 6, 8)
-        }
-    }
-    
-    static func getClickLimit(for levelNumber: Int) -> Int {
-        guard levelNumber % 4 == 0 else { return 0 }
-        let limitLevel = levelNumber / 4
-        switch limitLevel {
-        case 1: return 15
-        case 2: return 25
-        case 3: return 35
-        case 4: return 45
-        case 5: return 55
-        default: return limitLevel * 10
         }
     }
     
@@ -106,12 +93,59 @@ struct GameData {
         
         let limitLevel = levelNumber / 5
         switch limitLevel {
-        case 1: return 30
-        case 2: return 45
-        case 3: return 60
-        case 4: return 75
-        case 5: return 90
-        default: return limitLevel * 15 + 15
+        case 1: return 22
+        case 2: return 18
+        case 3: return 35
+        case 4: return 55
+        case 5: return 75
+        case 6: return 70
+        case 7: return 90
+        case 8: return 80
+        case 9: return 110
+        case 10: return 100
+        case 11: return 145
+        case 12: return 135
+        case 13: return 210
+        case 14: return 195
+        case 15: return 180
+        case 16: return 165
+        case 17: return 300
+        case 18: return 285
+        case 19: return 265
+        case 20: return 245
+        default: return 220
+        }
+    }
+    
+    static func getClickLimit(for levelNumber: Int) -> Int {
+        guard levelNumber % 4 == 0 else { return 0 }
+        let limitLevel = levelNumber / 4
+        switch limitLevel {
+        case 1: return 6
+        case 2: return 14
+        case 3: return 24
+        case 4: return 22
+        case 5: return 32
+        case 6: return 40
+        case 7: return 38
+        case 8: return 50
+        case 9: return 48
+        case 10: return 46
+        case 11: return 74
+        case 12: return 68
+        case 13: return 90
+        case 14: return 82
+        case 15: return 78
+        case 16: return 68
+        case 17: return 114
+        case 18: return 108
+        case 19: return 98
+        case 20: return 84
+        case 21: return 144
+        case 22: return 126
+        case 23: return 118
+        case 24: return 110
+        default: return 96
         }
     }
 }

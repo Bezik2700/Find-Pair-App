@@ -52,7 +52,7 @@ struct DifficultyCardView: View {
         .rotation3DEffect(
             .degrees(card.isFaceUp || card.isMatched ? 0 : 180),
             axis: (x: 0, y: 1, z: 0),
-            perspective: 0.5  // ← Добавляет глубину
+            perspective: 0.5 
         )
         .animation(.spring(response: 0.4, dampingFraction: 0.6), value: card.isFaceUp)
         .animation(.spring(response: 0.4, dampingFraction: 0.6), value: card.isMatched)

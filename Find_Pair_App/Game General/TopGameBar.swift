@@ -23,23 +23,26 @@ struct TopGameBar<VM: TopBarViewModelProtocol>: View {
                         .fontWeight(.bold)
                         .foregroundColor(.white)
                     
-                    if viewModel.timeLimit > 0 {
-                        HStack {
-                            Image(systemName: "clock")
-                                .foregroundColor(viewModel.timeRemaining > 0 ? .white : .red)
-                            Text("\(viewModel.formatTime(viewModel.timeRemaining))")
-                                .font(.title3)
-                                .foregroundColor(viewModel.timeRemaining > 10 ? .white : .red)
+                    HStack {
+                        if viewModel.timeLimit > 0 {
+                            HStack {
+                                Image(systemName: "clock")
+                                    .foregroundColor(viewModel.timeRemaining > 0 ? .white : .red)
+                                Text("\(viewModel.formatTime(viewModel.timeRemaining))")
+                                    .font(.title3)
+                                    .foregroundColor(viewModel.timeRemaining > 10 ? .white : .red)
+                            }
+                            .padding(.horizontal)
                         }
-                    }
-                    
-                    if viewModel.clickLimit > 0 {
-                        HStack {
-                            Image(systemName: "hand.tap.fill")
-                                .foregroundColor(viewModel.clicksRemaining > 0 ? .white : .red)
-                            Text("\(viewModel.clicksRemaining)/\(viewModel.clickLimit)")
-                                .font(.title3)
-                                .foregroundColor(viewModel.clicksRemaining > 0 ? .white : .red)
+                        
+                        if viewModel.clickLimit > 0 {
+                            HStack {
+                                Image(systemName: "hand.tap.fill")
+                                    .foregroundColor(viewModel.clicksRemaining > 0 ? .white : .red)
+                                Text("\(viewModel.clicksRemaining)/\(viewModel.clickLimit)")
+                                    .font(.title3)
+                                    .foregroundColor(viewModel.clicksRemaining > 0 ? .white : .red)
+                            }
                         }
                     }
                 }

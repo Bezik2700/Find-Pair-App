@@ -9,6 +9,11 @@ struct ContentView: View {
     @State private var showGameSetiings = false
     @State private var showDifficultyGame = false
     
+    @State private var addHints = 5
+    
+    @State private var showAlert = false
+    @State private var alertMessage = ""
+    
     @AppStorage("currentHints") private var currentHints = 0
     @AppStorage("selectedTheme") private var selectedTheme = "test_1"
     @AppStorage("difficultCurrentHints") private var difficultCurrentHints = 0
@@ -21,66 +26,73 @@ struct ContentView: View {
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .ignoresSafeArea()
-                                
+                
                 Color.black.opacity(0.5)
                     .ignoresSafeArea()
                 
-                VStack(spacing: 40) {
+                VStack (spacing: 24) {
+                    HStack {
+                        
+                        Spacer()
+                        
+                        Button(action: {
+                            showGameSetiings = true
+                        }) {
+                            Image(systemName: "gearshape.fill")
+                        }
+                        .buttonStyle(SettingsIconButtonStyle())
+                    }
+                    .padding(.trailing, 30)
+                    
+                    HStack {
+                        
+                        Spacer()
+                        
+                        Button(action: {
+                            if rewardedManager.isAdReady {
+                                rewardedManager.showAd {
+                                    currentHints += addHints
+                                    difficultCurrentHints += addHints
+                                    alertMessage = NSLocalizedString("add_hints", comment: "")
+                                    showAlert = true
+                                }
+                            } else {
+                                alertMessage = NSLocalizedString("ad_not_ready", comment: "")
+                                showAlert = true
+                            }
+                        }) {
+                            Image(systemName: "play.rectangle.fill")
+                        }
+                        .buttonStyle(SettingsIconButtonStyle())
+                    }
+                    .padding(.trailing, 30)
+                    
+                    Spacer()
+                }
+                
+                VStack(spacing: 16) {
                     
                     Button(action: {
                         showGame = true
                     }) {
-                        HStack {
-                            Text("Start easy")
-                                .font(.title2)
-                                .fontWeight(.semibold)
-                        }
+                        Text("start_easy")
                     }
-                    
-                    Button(action: {
-                        showGameSetiings = true
-                    }) {
-                        HStack {
-                            Text("Settings")
-                                .font(.title2)
-                                .fontWeight(.semibold)
-                        }
-                    }
+                    .buttonStyle(GameMenuButtonStyle(gradientColors: [.green, .init(red: 0.2, green: 0.8, blue: 0.5)]))
                     
                     Button(action: {
                         showDifficultyGame = true
                     }) {
-                        HStack {
-                            Text("Start difficult")
-                                .font(.title2)
-                                .fontWeight(.semibold)
-                        }
+                        Text("start_difficult")
                     }
-                    
-                    Spacer()
-                    
-                    Button(action: {
-                        rewardedManager.showAd {
-                        currentHints += 5
-                        difficultCurrentHints += 5
-                        }
-                    }) {
-                        HStack {
-                            Image(systemName: "play.rectangle.fill")
-                            Text(rewardedManager.isAdReady ? "ads_bonus" : "loading...")
-                            }
-                            .font(.headline)
-                            .foregroundColor(.white)
-                            .padding()
-                            .frame(maxWidth: .infinity)
-                            .background(rewardedManager.isAdReady ? Color.green : Color.gray)
-                            .cornerRadius(12)
-                        }
-                    .disabled(!rewardedManager.isAdReady)
-                    .padding(.horizontal, 30)
+                    .buttonStyle(GameMenuButtonStyle(gradientColors: [.red, .orange]))
                     
                 }
-                .padding(.top, 100)
+                .padding(.horizontal, 32)
+            }
+            .alert("notification", isPresented: $showAlert) {
+                Button("ok", role: .cancel) { }
+            } message: {
+                Text(LocalizedStringKey(alertMessage))
             }
             .navigationDestination(isPresented: $showGame) {
                 GameView()
@@ -96,13 +108,10 @@ struct ContentView: View {
 }
 
 #Preview {
-    // 1. Предварительно записываем тестовые данные в UserDefaults для @AppStorage
     let _ = {
         UserDefaults.standard.set(10, forKey: "currentHints")
         UserDefaults.standard.set("test_1", forKey: "selectedTheme")
         UserDefaults.standard.set(10, forKey: "difficultCurrentHints")
     }()
-    
-    // 2. Возвращаем сам экран без передачи внутренних параметров в инициализатор
     return ContentView()
 }

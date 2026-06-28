@@ -34,25 +34,36 @@ struct GameView: View {
                     Button(action: {
                         viewModel.restartLevel()
                     }) {
-                        HStack {
+                        HStack(spacing: 10) {
                             Image(systemName: "arrow.clockwise")
-                            Text("Попробовать снова")
+                                .font(.title3)
+                                .fontWeight(.bold)
+                            
+                            Text("restart")
                         }
-                        .font(.headline)
-                        .foregroundColor(.white)
-                        .padding(.horizontal, 30)
-                        .padding(.vertical, 20)
                     }
-                    .transition(.scale.combined(with: .opacity))
-                    .animation(.easeInOut, value: viewModel.isClickLimitExceeded)
-                    .animation(.easeInOut, value: viewModel.isTimeUp)
+                    .buttonStyle(RestartButtonStyle())
+                    .padding(.horizontal, 40)        
+                    .transition(.opacity.combined(with: .scale(scale: 0.95)))
                 }
+
                 
+                // отладочные кнопки
                 Button(action: {
                     viewModel.resetProgress()
                 }) {
                     HStack {
                         Text("reset")
+                            .font(.title2)
+                            .fontWeight(.semibold)
+                    }
+                }
+                
+                Button(action: {
+                    viewModel.addHint()
+                }) {
+                    HStack {
+                        Text("add")
                             .font(.title2)
                             .fontWeight(.semibold)
                     }

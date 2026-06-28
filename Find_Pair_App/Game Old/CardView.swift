@@ -39,8 +39,10 @@ struct CardView: View {
                                 card.type == .number ? card.content :
                                 ""
                             )
-                            .font(.system(size: size * 0.3))
-                            .foregroundColor(card.type == .number ? .white : .black) 
+                            .font(.system(size: size * 0.4))
+                            .lineLimit(1)
+                            .minimumScaleFactor(0.5) 
+                            .foregroundColor(card.type == .number ? .white : .black)
                             .rotation3DEffect(.degrees(180), axis: (x: 0, y: 1, z: 0))
                         )
                 } else {

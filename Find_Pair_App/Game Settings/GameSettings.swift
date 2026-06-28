@@ -23,13 +23,11 @@ struct GameSettings: View {
                 .ignoresSafeArea()
             
             VStack(spacing: 30) {
-                Text("game_background")
-                    .font(.title)
-                    .fontWeight(.bold)
-                    .foregroundColor(.white)
+                
+                Spacer()
                 
                 HStack(spacing: 15) {
-                    LazyVGrid(columns: columns, spacing: 20) {
+                    LazyVGrid(columns: columns, spacing: 30) {
                         ForEach(imageNames, id: \.self) { imageName in
                             ZStack {
                                 RoundedRectangle(cornerRadius: 12)
@@ -57,12 +55,14 @@ struct GameSettings: View {
                         }
                     }
                 }
-                VStack(spacing: 30) {
+                .padding(.horizontal, 20)
+                
+                VStack(spacing: 15) {
                     VStack(spacing: 15) {
                         Toggle(isOn: $isMusicEnabled) {
                             HStack {
-                                Image(systemName: "music.note")
                                 Text("game_music")
+                                    .font(.title2)
                             }
                             .foregroundColor(.white)
                         }
@@ -76,25 +76,26 @@ struct GameSettings: View {
                         }
                     }
                     .padding()
-                    .background(Color.white.opacity(0.1))
+                    .background(isMusicEnabled ? .green.opacity(0.25) : .red.opacity(0.25))
                     .cornerRadius(15)
                     
                     VStack(spacing: 15) {
                         Toggle(isOn: $isSoundEnabled) {
                             HStack {
-                                Image(systemName: "speaker.wave.2")
                                 Text("game_sound")
+                                    .font(.title2)
                             }
                             .foregroundColor(.white)
                         }
                         .tint(.green)
                     }
                     .padding()
-                    .background(Color.white.opacity(0.1))
+                    .background(isSoundEnabled ? .green.opacity(0.25) : .red.opacity(0.25))
                     .cornerRadius(15)
                     
                     Spacer()
                 }
+                .padding(.horizontal, 20)
             }
         }
     }
