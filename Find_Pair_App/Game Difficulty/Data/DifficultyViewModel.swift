@@ -1,6 +1,7 @@
 import SwiftUI
 import Combine
 
+// DifficultyViewModel.swift
 class DifficultyViewModel: ObservableObject {
     @Published var cards: [DifficultyCard] = []
     @Published var moves = 0
@@ -14,6 +15,8 @@ class DifficultyViewModel: ObservableObject {
     @Published var timeLimit = 0
     @Published var timeRemaining = 0
     @Published var isTimeUp = false
+    
+    @Published var requiredMatches: Int = 2  // ← Сколько нужно найти (2,3,4,5)
         
     @Published var difficultyCurrentLevel = 1 {
         didSet { UserDefaults.standard.set(difficultyCurrentLevel, forKey: "difficultyCurrentLevel") }
@@ -27,7 +30,7 @@ class DifficultyViewModel: ObservableObject {
         didSet { UserDefaults.standard.set(difficultCurrentHints, forKey: "difficultCurrentHints") }
     }
         
-    private var firstSelectedCard: DifficultyCard?
+    private var selectedCards: [DifficultyCard] = []  // ← Несколько выбранных карточек
     private var isProcessing = false
     private var timer: Timer?
         
@@ -43,37 +46,43 @@ class DifficultyViewModel: ObservableObject {
         return Array(Set(allCategories)).sorted()
     }
     
+    var columns: Int {
+        DifficultyGameLogic.columns(for: cards.count)
+    }
+    
+    var levelDescription: String {
+        switch requiredMatches {
+        case 2: return "Найди пары"
+        case 3: return "Найди тройки"
+        case 4: return "Найди четверки"
+        case 5: return "Найди пятёрки"
+        default: return "Найди \(requiredMatches) одинаковых"
+        }
+    }
+    
+    // MARK: - Уровень
     func setupLevel() {
-        let index = min(difficultyCurrentLevel - 1, DifficultyGameData.levelCategories.count - 1)
-        let items = DifficultyGameData.levelCategories[index]
-        totalPairs = items.count / 2
+        requiredMatches = DifficultyGameLogic.matchCount(for: difficultyCurrentLevel)
+        totalPairs = DifficultyGameLogic.totalPairs(for: difficultyCurrentLevel)
+        cards = DifficultyGameLogic.createCards(for: difficultyCurrentLevel)
         
-        clickLimit = GameData.getClickLimit(for: difficultyCurrentLevel)
+        clickLimit = DifficultyGameLogic.getDifficultClickLimit(for: difficultyCurrentLevel)
         clicksRemaining = clickLimit
         isClickLimitExceeded = false
         
-        timeLimit = GameData.getTimeLimit(for: difficultyCurrentLevel)
+        timeLimit = DifficultyGameLogic.getDifficultTimeLimit(for: difficultyCurrentLevel)
         timeRemaining = timeLimit
         isTimeUp = false
         
         timeLimit > 0 ? startTimer() : stopTimer()
         
-        let newCards = items.map { DifficultyCard(emoji: $0.emoji, category: $0.category) }
-        cards = newCards.shuffled()
-        
         moves = 0
         matchedPairs = 0
-        firstSelectedCard = nil
+        selectedCards = []
         isProcessing = false
     }
     
-    var columns: Int {
-        let count = cards.count
-        if count <= 4 { return 2 }
-        if count <= 8 { return 3 }
-        return 4
-    }
-    
+    // MARK: - Выбор карточки (несколько!)
     func selectCard(_ card: DifficultyCard) {
         guard !isProcessing, !isTimeUp, !isClickLimitExceeded,
               let index = cards.firstIndex(where: { $0.id == card.id }),
@@ -89,17 +98,54 @@ class DifficultyViewModel: ObservableObject {
         }
         
         cards[index].isFaceUp = true
+        selectedCards.append(cards[index])
         
-        if firstSelectedCard == nil {
-            firstSelectedCard = cards[index]
-        } else {
+        // Проверяем, когда набрали нужное количество
+        if selectedCards.count == requiredMatches {
             moves += 1
-            let first = firstSelectedCard!
-            let second = cards[index]
-            checkForMatch(first: first, second: second)
+            checkForMatch()
         }
     }
     
+    // MARK: - Проверка совпадения (для нескольких карточек)
+    private func checkForMatch() {
+        isProcessing = true
+        
+        let firstCategory = selectedCards[0].category
+        let allMatch = selectedCards.allSatisfy { $0.category == firstCategory }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
+            guard let self = self else { return }
+            
+            if allMatch {
+                let matchedIDs = self.selectedCards.map { $0.id }
+                self.cards = self.cards.map { card in
+                    var updated = card
+                    if matchedIDs.contains(card.id) { updated.isMatched = true }
+                    return updated
+                }
+                self.matchedPairs += 1
+                
+                if self.matchedPairs == self.totalPairs {
+                    guard !self.isTimeUp, !(self.clickLimit > 0 && self.clicksRemaining < 0) else { return }
+                    self.stopTimer()
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) { self.nextLevel() }
+                }
+            } else {
+                let selectedIDs = self.selectedCards.map { $0.id }
+                self.cards = self.cards.map { card in
+                    var updated = card
+                    if selectedIDs.contains(card.id) { updated.isFaceUp = false }
+                    return updated
+                }
+            }
+            
+            self.selectedCards = []
+            self.isProcessing = false
+        }
+    }
+    
+    // MARK: - Подсказка (показывает нужное количество карточек)
     func showHint() {
         guard !isHintActive, !isProcessing else { return }
         isHintActive = true
@@ -107,63 +153,42 @@ class DifficultyViewModel: ObservableObject {
         
         var updatedCards = cards
         for i in updatedCards.indices {
-            if !updatedCards[i].isMatched {
-                updatedCards[i].isFaceUp = false
-            }
+            if !updatedCards[i].isMatched { updatedCards[i].isFaceUp = false }
         }
-        
+        selectedCards = []
         isProcessing = false
         
         let unmatched = updatedCards.filter { !$0.isMatched }
-        guard let pair = findHintPair(in: unmatched) else {
-            withAnimation(.easeInOut(duration: 0.4)) { // ← Плавное закрытие остальных
-                cards = updatedCards
-            }
+        guard let hintGroup = DifficultyGameLogic.findHintPair(in: unmatched, matchCount: requiredMatches) else {
+            withAnimation(.easeInOut(duration: 0.4)) { cards = updatedCards }
             isHintActive = false
             return
         }
         
-        for hintCard in pair {
+        for hintCard in hintGroup {
             if let index = updatedCards.firstIndex(where: { $0.id == hintCard.id }) {
                 updatedCards[index].isFaceUp = true
             }
         }
         
-        // ✅ Открываем подсказку с плавной анимацией
-        withAnimation(.easeInOut(duration: 0.4)) {
-            cards = updatedCards
-        }
+        withAnimation(.easeInOut(duration: 0.4)) { cards = updatedCards }
         
-        let pairIDs = pair.map { $0.id }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) { [weak self] in // 1.5 сек чтобы успели рассмотреть
+        let hintIDs = hintGroup.map { $0.id }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) { [weak self] in
             guard let self = self else { return }
-            
             var closedCards = self.cards
-            for id in pairIDs {
+            for id in hintIDs {
                 if let index = closedCards.firstIndex(where: { $0.id == id }), !closedCards[index].isMatched {
                     closedCards[index].isFaceUp = false
                 }
             }
-            
-            // ✅ Закрываем подсказку с плавной анимацией
-            withAnimation(.easeInOut(duration: 0.4)) {
-                self.cards = closedCards
-            }
+            withAnimation(.easeInOut(duration: 0.4)) { self.cards = closedCards }
             self.isHintActive = false
         }
         SoundManager.shared.playHintSound()
     }
-
     
-    private func findHintPair(in cards: [DifficultyCard]) -> [DifficultyCard]? {
-        for card in cards {
-            if let pair = cards.first(where: { $0.id != card.id && $0.category == card.category }) {
-                return [card, pair]
-            }
-        }
-        return nil
-    }
-    
+    // MARK: - Таймер
     func startTimer() {
         guard timeLimit > 0 else { return }
         timeRemaining = timeLimit
@@ -189,51 +214,9 @@ class DifficultyViewModel: ObservableObject {
         String(format: "%02d:%02d", seconds / 60, seconds % 60)
     }
     
-    private func checkForMatch(first: DifficultyCard, second: DifficultyCard) {
-        isProcessing = true
-        let isMatch = first.category == second.category && first.id != second.id
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
-            guard let self = self else { return }
-            
-            if isMatch {
-                self.cards = self.cards.map { card in
-                    var updated = card
-                    if card.id == first.id || card.id == second.id {
-                        updated.isMatched = true
-                    }
-                    return updated
-                }
-                self.matchedPairs += 1
-                
-                if self.matchedPairs == self.totalPairs {
-                    guard !self.isTimeUp, !(self.clickLimit > 0 && self.clicksRemaining < 0) else { return }
-                    self.stopTimer()
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
-                        self.nextLevel()
-                    }
-                }
-            } else {
-                self.cards = self.cards.map { card in
-                    var updated = card
-                    if card.id == first.id || card.id == second.id {
-                        updated.isFaceUp = false
-                    }
-                    return updated
-                }
-            }
-            
-            self.firstSelectedCard = nil
-            self.isProcessing = false
-        }
-    }
-    
-    func categoryName(for category: String) -> String {
-        DifficultyGameData.categoryNames[category] ?? category
-    }
-        
+    // MARK: - Уровни
     func nextLevel() {
-        if difficultyCurrentLevel < DifficultyGameData.levelCategories.count {
+        if difficultyCurrentLevel < DifficultyGameLogic.totalLevels {
             difficultyCurrentLevel += 1
             difficultCurrentHints += 1
             difficultyMaxLevel = max(difficultyMaxLevel, difficultyCurrentLevel)
@@ -241,8 +224,8 @@ class DifficultyViewModel: ObservableObject {
         }
     }
     
-    func addHintShowReward() {
-        difficultCurrentHints += 10
+    func restartLevel() {
+        setupLevel()
     }
     
     func resetProgress() {
@@ -256,11 +239,15 @@ class DifficultyViewModel: ObservableObject {
         setupLevel()
     }
     
-    func restartLevel() {
-        setupLevel()
+    func addHintShowReward() {
+        difficultCurrentHints += 10
     }
     
     var isLevelComplete: Bool {
         matchedPairs == totalPairs
+    }
+    
+    func categoryName(for category: String) -> String {
+        DifficultyGameLogic.categoryName(for: category)
     }
 }
