@@ -106,12 +106,3 @@ struct ContentView: View {
         }
     }
 }
-
-#Preview {
-    let _ = {
-        UserDefaults.standard.set(10, forKey: "currentHints")
-        UserDefaults.standard.set("test_1", forKey: "selectedTheme")
-        UserDefaults.standard.set(10, forKey: "difficultCurrentHints")
-    }()
-    return ContentView()
-}

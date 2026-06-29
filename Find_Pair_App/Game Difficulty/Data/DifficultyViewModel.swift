@@ -1,7 +1,6 @@
 import SwiftUI
 import Combine
 
-// DifficultyViewModel.swift
 class DifficultyViewModel: ObservableObject {
     @Published var cards: [DifficultyCard] = []
     @Published var moves = 0
@@ -16,7 +15,7 @@ class DifficultyViewModel: ObservableObject {
     @Published var timeRemaining = 0
     @Published var isTimeUp = false
     
-    @Published var requiredMatches: Int = 2  // ← Сколько нужно найти (2,3,4,5)
+    @Published var requiredMatches: Int = 2
         
     @Published var difficultyCurrentLevel = 1 {
         didSet { UserDefaults.standard.set(difficultyCurrentLevel, forKey: "difficultyCurrentLevel") }
@@ -30,7 +29,7 @@ class DifficultyViewModel: ObservableObject {
         didSet { UserDefaults.standard.set(difficultCurrentHints, forKey: "difficultCurrentHints") }
     }
         
-    private var selectedCards: [DifficultyCard] = []  // ← Несколько выбранных карточек
+    private var selectedCards: [DifficultyCard] = []
     private var isProcessing = false
     private var timer: Timer?
         
@@ -52,15 +51,14 @@ class DifficultyViewModel: ObservableObject {
     
     var levelDescription: String {
         switch requiredMatches {
-        case 2: return "Найди пары"
-        case 3: return "Найди тройки"
-        case 4: return "Найди четверки"
-        case 5: return "Найди пятёрки"
-        default: return "Найди \(requiredMatches) одинаковых"
+        case 2: return "We are looking for couples."
+        case 3: return "We are looking for threesomes."
+        case 4: return "We are looking for foursomes."
+        case 5: return "We're looking for fives."
+        default: return "Search \(requiredMatches) identical"
         }
     }
     
-    // MARK: - Уровень
     func setupLevel() {
         requiredMatches = DifficultyGameLogic.matchCount(for: difficultyCurrentLevel)
         totalPairs = DifficultyGameLogic.totalPairs(for: difficultyCurrentLevel)
@@ -82,7 +80,6 @@ class DifficultyViewModel: ObservableObject {
         isProcessing = false
     }
     
-    // MARK: - Выбор карточки (несколько!)
     func selectCard(_ card: DifficultyCard) {
         guard !isProcessing, !isTimeUp, !isClickLimitExceeded,
               let index = cards.firstIndex(where: { $0.id == card.id }),
@@ -100,14 +97,12 @@ class DifficultyViewModel: ObservableObject {
         cards[index].isFaceUp = true
         selectedCards.append(cards[index])
         
-        // Проверяем, когда набрали нужное количество
         if selectedCards.count == requiredMatches {
             moves += 1
             checkForMatch()
         }
     }
     
-    // MARK: - Проверка совпадения (для нескольких карточек)
     private func checkForMatch() {
         isProcessing = true
         
@@ -145,7 +140,6 @@ class DifficultyViewModel: ObservableObject {
         }
     }
     
-    // MARK: - Подсказка (показывает нужное количество карточек)
     func showHint() {
         guard !isHintActive, !isProcessing else { return }
         isHintActive = true
@@ -188,7 +182,6 @@ class DifficultyViewModel: ObservableObject {
         SoundManager.shared.playHintSound()
     }
     
-    // MARK: - Таймер
     func startTimer() {
         guard timeLimit > 0 else { return }
         timeRemaining = timeLimit
@@ -214,7 +207,6 @@ class DifficultyViewModel: ObservableObject {
         String(format: "%02d:%02d", seconds / 60, seconds % 60)
     }
     
-    // MARK: - Уровни
     func nextLevel() {
         if difficultyCurrentLevel < DifficultyGameLogic.totalLevels {
             difficultyCurrentLevel += 1

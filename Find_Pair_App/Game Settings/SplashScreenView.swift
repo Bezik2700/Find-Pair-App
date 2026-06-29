@@ -3,7 +3,7 @@ import SwiftUI
 struct SplashScreenView: View {
     @State private var isActive = false
     @State private var progress: Double = 0
-    let title = "app_name"
+    let title = Bundle.main.infoDictionary?["CFBundleDisplayName"] as? String ?? ""
     
     var body: some View {
         if isActive {
@@ -19,13 +19,13 @@ struct SplashScreenView: View {
                 
                 VStack(spacing: 30) {
                     ZStack {
-                        Image("generated_image")
+                        Image("app_icon")
                             .resizable()
                             .frame(width: 200, height: 200)
                             .cornerRadius(25)
                             .grayscale(1.0)
                         
-                        Image("generated_image")
+                        Image("app_icon")
                             .resizable()
                             .frame(width: 200, height: 200)
                             .cornerRadius(25)

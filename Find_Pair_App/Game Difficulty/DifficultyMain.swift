@@ -15,7 +15,6 @@ struct DifficultyMain: View {
                 
                 Spacer()
                 
-                // Что ищем
                 Text(difficultViewModel.levelDescription)
                     .font(.headline)
                     .foregroundColor(.white)
@@ -24,7 +23,6 @@ struct DifficultyMain: View {
                     .background(Color.white.opacity(0.15))
                     .cornerRadius(20)
                 
-                // Сетка карточек
                 LazyVGrid(
                     columns: Array(repeating: GridItem(.flexible(), spacing: 8),
                                   count: difficultViewModel.columns),
@@ -43,9 +41,7 @@ struct DifficultyMain: View {
                 
                 Spacer()
                 
-                // Кнопки
                 HStack(spacing: 20) {
-                    // Restart — только при проигрыше
                     if difficultViewModel.isClickLimitExceeded || difficultViewModel.isTimeUp {
                         Button(action: {
                             withAnimation {
@@ -54,7 +50,7 @@ struct DifficultyMain: View {
                         }) {
                             HStack(spacing: 8) {
                                 Image(systemName: "arrow.clockwise")
-                                Text("Попробовать снова")
+                                Text("restart")
                             }
                             .font(.headline)
                             .foregroundColor(.white)
@@ -66,7 +62,6 @@ struct DifficultyMain: View {
                         .transition(.scale.combined(with: .opacity))
                     }
                     
-                    // Reset
                     Button(action: {
                         difficultViewModel.resetProgress()
                     }) {

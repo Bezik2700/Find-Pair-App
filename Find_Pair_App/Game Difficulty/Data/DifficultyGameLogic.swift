@@ -1,9 +1,7 @@
 import SwiftUI
 
-// DifficultyGameLogic.swift
 struct DifficultyGameLogic {
     
-    // MARK: - Лимиты
     static func getDifficultClickLimit(for levelNumber: Int) -> Int {
         guard levelNumber % 3 == 0 else { return 0 }
         
@@ -28,7 +26,6 @@ struct DifficultyGameLogic {
         }
     }
     
-    // MARK: - Уровни
     static var totalLevels: Int {
         DifficultyGameData.levelCategories.count
     }
@@ -56,7 +53,6 @@ struct DifficultyGameLogic {
         return 4
     }
     
-    // MARK: - Подсказка
     static func findHintPair(in cards: [DifficultyCard], matchCount: Int) -> [DifficultyCard]? {
         let unmatched = cards.filter { !$0.isMatched }
         for card in unmatched {
