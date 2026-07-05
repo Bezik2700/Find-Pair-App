@@ -38,33 +38,28 @@ struct DifficultyGameLogic {
     static func createCards(for level: Int) -> [DifficultyCard] {
         let index = min(level - 1, DifficultyGameData.levelCategories.count - 1)
         let items = DifficultyGameData.levelCategories[index].items
-        return items.map { DifficultyCard(emoji: $0.emoji, category: $0.category) }.shuffled()
+        return items.map { DifficultyCard(imageName: $0.imageName, pairID: $0.pairID) }.shuffled()
     }
-    
+
     static func totalPairs(for level: Int) -> Int {
         let index = min(level - 1, DifficultyGameData.levelCategories.count - 1)
         let data = DifficultyGameData.levelCategories[index]
         return data.items.count / data.matchCount
     }
     
-    static func columns(for cardCount: Int) -> Int {
-        if cardCount <= 4 { return 2 }
-        if cardCount <= 9 { return 3 }
-        return 4
+    static func columns(for level: Int) -> Int {
+        let index = min(level - 1, DifficultyGameData.levelCategories.count - 1)
+        return DifficultyGameData.levelCategories[index].columns
     }
     
     static func findHintPair(in cards: [DifficultyCard], matchCount: Int) -> [DifficultyCard]? {
         let unmatched = cards.filter { !$0.isMatched }
         for card in unmatched {
-            let sameCategory = unmatched.filter { $0.id != card.id && $0.category == card.category }
-            if sameCategory.count >= matchCount - 1 {
-                return Array(sameCategory.prefix(matchCount - 1)) + [card]
+            let samePair = unmatched.filter { $0.id != card.id && $0.pairID == card.pairID }
+            if samePair.count >= matchCount - 1 {
+                return Array(samePair.prefix(matchCount - 1)) + [card]
             }
         }
         return nil
-    }
-    
-    static func categoryName(for category: String) -> String {
-        DifficultyGameData.categoryNames[category] ?? category
     }
 }

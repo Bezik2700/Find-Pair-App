@@ -41,12 +41,12 @@ class DifficultyViewModel: ObservableObject {
     }
         
     var currentCategories: [String] {
-        let allCategories = cards.map { $0.category }
-        return Array(Set(allCategories)).sorted()
+        let allPairs = cards.map { $0.pairID }
+        return Array(Set(allPairs)).sorted()
     }
     
     var columns: Int {
-        DifficultyGameLogic.columns(for: cards.count)
+        DifficultyGameLogic.columns(for: difficultyCurrentLevel)
     }
     
     var levelDescription: String {
@@ -106,8 +106,8 @@ class DifficultyViewModel: ObservableObject {
     private func checkForMatch() {
         isProcessing = true
         
-        let firstCategory = selectedCards[0].category
-        let allMatch = selectedCards.allSatisfy { $0.category == firstCategory }
+        let firstPairID = selectedCards[0].pairID  // ← category → pairID
+        let allMatch = selectedCards.allSatisfy { $0.pairID == firstPairID }  // ← category → pairID
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
             guard let self = self else { return }
@@ -239,7 +239,7 @@ class DifficultyViewModel: ObservableObject {
         matchedPairs == totalPairs
     }
     
-    func categoryName(for category: String) -> String {
-        DifficultyGameLogic.categoryName(for: category)
+    func pairName(for pairID: String) -> String {
+        "\(pairID.replacingOccurrences(of: "pair_", with: ""))"
     }
 }

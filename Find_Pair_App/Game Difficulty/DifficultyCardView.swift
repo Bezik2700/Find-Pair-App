@@ -29,8 +29,11 @@ struct DifficultyCardView: View {
                                 .stroke(Color.gray, lineWidth: 4)
                         )
                         .overlay(
-                            Text(card.emoji)
-                                .font(.system(size: size * 0.4))
+                            Image(card.imageName)
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                                .clipShape(RoundedRectangle(cornerRadius: 8))
                                 .rotation3DEffect(.degrees(180), axis: (x: 0, y: 1, z: 0))
                         )
                 } else {

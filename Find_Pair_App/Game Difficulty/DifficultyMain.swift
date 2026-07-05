@@ -9,11 +9,9 @@ struct DifficultyMain: View {
     var body: some View {
         ZStack {
             
-            VStack(spacing: 15) {
+            VStack {
                 
                 TopGameBar(viewModel: difficultViewModel)
-                
-                Spacer()
                 
                 Text(difficultViewModel.levelDescription)
                     .font(.headline)
@@ -23,23 +21,23 @@ struct DifficultyMain: View {
                     .background(Color.white.opacity(0.15))
                     .cornerRadius(20)
                 
-                LazyVGrid(
-                    columns: Array(repeating: GridItem(.flexible(), spacing: 8),
-                                  count: difficultViewModel.columns),
-                    spacing: 8
-                ) {
-                    ForEach(difficultViewModel.cards) { card in
-                        DifficultyCardView(card: card)
-                            .onTapGesture {
-                                withAnimation(.easeInOut(duration: 0.3)) {
-                                    difficultViewModel.selectCard(card)
+                GeometryReader { geometry in
+                    LazyVGrid(
+                        columns: Array(repeating: GridItem(.flexible(), spacing: 8),
+                                      count: difficultViewModel.columns),
+                        spacing: 8
+                    ) {
+                        ForEach(difficultViewModel.cards) { card in
+                            DifficultyCardView(card: card)
+                                .onTapGesture {
+                                    withAnimation(.easeInOut(duration: 0.3)) {
+                                        difficultViewModel.selectCard(card)
+                                    }
                                 }
-                            }
+                        }
                     }
+                    .padding(.horizontal)
                 }
-                .padding(.horizontal)
-                
-                Spacer()
                 
                 HStack(spacing: 20) {
                     if difficultViewModel.isClickLimitExceeded || difficultViewModel.isTimeUp {
