@@ -15,7 +15,7 @@ struct Find_Pair_AppApp: App {
         WindowGroup {
             SplashScreenView()
                 .onAppear {
-                    SoundManager.shared.playBackgroundMusic("fon_sound")
+                    SoundManager.shared.playBackgroundMusic("fon_music")
                 }
                 .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)) { _ in
                     SoundManager.shared.pauseBackgroundMusic()

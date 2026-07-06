@@ -236,7 +236,6 @@ class GameViewModel: ObservableObject {
             }
             self.isHintActive = false
         }
-        SoundManager.shared.playHintSound()
     }
     
     private func findHintPair(in cards: [Card]) -> [Card]? {

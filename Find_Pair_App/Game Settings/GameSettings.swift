@@ -4,9 +4,9 @@ struct GameSettings: View {
     
     @AppStorage("isMusicEnabled") private var isMusicEnabled = true
     @AppStorage("isSoundEnabled") private var isSoundEnabled = true
-    @AppStorage("selectedTheme") private var selectedTheme = "test_1"
+    @AppStorage("selectedTheme") private var selectedTheme = "game_fon_1"
     
-    let imageNames: [String] = ["test_1", "test_2", "test_3", "test_4", "test_5", "test_6", "test_7", "test_8", "test_9"]
+    let imageNames: [String] = ["game_fon_1", "game_fon_2", "game_fon_3", "game_fon_4", "game_fon_5", "game_fon_6", "game_fon_7", "game_fon_8", "game_fon_9"]
     let columns = Array(repeating: GridItem(.flexible(), spacing: 15), count: 3)
     
     var body: some View {
@@ -22,17 +22,50 @@ struct GameSettings: View {
             Color.black.opacity(0.3)
                 .ignoresSafeArea()
             
-            VStack(spacing: 30) {
+            ScrollView(.vertical, showsIndicators: false) {
+                VStack(spacing: 30) {
                 
-                Spacer()
-                
-                HStack(spacing: 15) {
-                    LazyVGrid(columns: columns, spacing: 30) {
+                    VStack(spacing: 15) {
+                        Toggle(isOn: $isMusicEnabled) {
+                            Text("game_music")
+                                .font(.title2)
+                                .foregroundColor(.white)
+                        }
+                        .tint(.green)
+                        .onChange(of: isMusicEnabled) { _, enabled in
+                            SoundManager.shared.playMultiSound()
+                            if enabled {
+                                SoundManager.shared.playBackgroundMusic("fon_music")
+                            } else {
+                                SoundManager.shared.stopBackgroundMusic()
+                            }
+                        }
+                        .padding()
+                        .background(isMusicEnabled ? .green.opacity(0.25) : .red.opacity(0.25))
+                        .cornerRadius(15)
+                        
+                        Toggle(isOn: $isSoundEnabled) {
+                            Text("game_sound")
+                                .font(.title2)
+                                .foregroundColor(.white)
+                        }
+                        .tint(.green)
+                        .onChange(of: isSoundEnabled) { _, newValue in
+                            SoundManager.shared.playMultiSound()
+                        }
+                        .padding()
+                        .background(isSoundEnabled ? .green.opacity(0.25) : .red.opacity(0.25))
+                        .cornerRadius(15)
+                    }
+                    .padding(.horizontal, 24)
+                    
+                    LazyVGrid(columns: columns, spacing: 20) {
                         ForEach(imageNames, id: \.self) { imageName in
                             ZStack {
                                 RoundedRectangle(cornerRadius: 12)
                                     .fill(Color.white.opacity(0.1))
-                                    .frame(width: selectedTheme == imageName ? 120 : 100, height: selectedTheme == imageName ? 120 : 100)
+                                    .frame(width: selectedTheme == imageName ? 110 : 95,
+                                           height: selectedTheme == imageName ? 110 : 95)
                                     .overlay(
                                         RoundedRectangle(cornerRadius: 12)
                                             .stroke(
@@ -44,60 +77,28 @@ struct GameSettings: View {
                                 Image(imageName)
                                     .resizable()
                                     .aspectRatio(contentMode: .fill)
-                                    .frame(width: selectedTheme == imageName ? 110 : 90, height: selectedTheme == imageName ? 110 : 90)
+                                    .frame(width: selectedTheme == imageName ? 100 : 85,
+                                           height: selectedTheme == imageName ? 100 : 85)
                                     .clipShape(RoundedRectangle(cornerRadius: 10))
                             }
+                            .animation(.spring(response: 0.3, dampingFraction: 0.6), value: selectedTheme)
                             .onTapGesture {
-                                withAnimation(.easeInOut(duration: 0.3)) {
-                                    selectedTheme = imageName
-                                }
+                                SoundManager.shared.playMultiSound()
+                                selectedTheme = imageName
                             }
                         }
                     }
-                }
-                .padding(.horizontal, 20)
-                
-                VStack(spacing: 15) {
-                    VStack(spacing: 15) {
-                        Toggle(isOn: $isMusicEnabled) {
-                            HStack {
-                                Text("game_music")
-                                    .font(.title2)
-                            }
-                            .foregroundColor(.white)
-                        }
-                        .tint(.green)
-                        .onChange(of: isMusicEnabled) { _, enabled in
-                            if enabled {
-                                SoundManager.shared.playBackgroundMusic("fon_sound")
-                            } else {
-                                SoundManager.shared.stopBackgroundMusic()
-                            }
-                        }
-                    }
-                    .padding()
-                    .background(isMusicEnabled ? .green.opacity(0.25) : .red.opacity(0.25))
-                    .cornerRadius(15)
+                    .padding(.horizontal, 10)
                     
-                    VStack(spacing: 15) {
-                        Toggle(isOn: $isSoundEnabled) {
-                            HStack {
-                                Text("game_sound")
-                                    .font(.title2)
-                            }
-                            .foregroundColor(.white)
-                        }
-                        .tint(.green)
-                    }
-                    .padding()
-                    .background(isSoundEnabled ? .green.opacity(0.25) : .red.opacity(0.25))
-                    .cornerRadius(15)
-                    
-                    Spacer()
+                    Text("About Game")
+                        .foregroundColor(.white)
+                        .padding(.top, 10)
+                        .font(.system(size: 28))
+                        .fontWeight(.bold)
+
                 }
-                .padding(.horizontal, 20)
+                .padding(.vertical, 20)
             }
         }
     }
 }
-

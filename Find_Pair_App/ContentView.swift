@@ -9,13 +9,13 @@ struct ContentView: View {
     @State private var showGameSetiings = false
     @State private var showDifficultyGame = false
     
-    @State private var addHints = 5
+    @State private var addHints = 3
     
     @State private var showAlert = false
     @State private var alertMessage = ""
     
     @AppStorage("currentHints") private var currentHints = 0
-    @AppStorage("selectedTheme") private var selectedTheme = "test_1"
+    @AppStorage("selectedTheme") private var selectedTheme = "game_fon_1"
     @AppStorage("difficultCurrentHints") private var difficultCurrentHints = 0
     
     var body: some View {
@@ -36,6 +36,7 @@ struct ContentView: View {
                         Spacer()
                         
                         Button(action: {
+                            SoundManager.shared.playMultiSound()
                             showGameSetiings = true
                         }) {
                             Image(systemName: "gearshape.fill")
@@ -49,6 +50,7 @@ struct ContentView: View {
                         Spacer()
                         
                         Button(action: {
+                            SoundManager.shared.playMultiSound()
                             if rewardedManager.isAdReady {
                                 rewardedManager.showAd {
                                     currentHints += addHints
@@ -73,6 +75,7 @@ struct ContentView: View {
                 VStack(spacing: 16) {
                     
                     Button(action: {
+                        SoundManager.shared.playMultiSound()
                         showGame = true
                     }) {
                         Text("start_easy")
@@ -80,6 +83,7 @@ struct ContentView: View {
                     .buttonStyle(GameMenuButtonStyle(gradientColors: [.green, .init(red: 0.2, green: 0.8, blue: 0.5)]))
                     
                     Button(action: {
+                        SoundManager.shared.playMultiSound()
                         showDifficultyGame = true
                     }) {
                         Text("start_difficult")

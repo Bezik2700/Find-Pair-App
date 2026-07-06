@@ -2,7 +2,7 @@ import SwiftUI
 
 struct GameView: View {
     @StateObject private var viewModel = GameViewModel()
-    @AppStorage("selectedTheme") private var selectedTheme = "test_1"
+    @AppStorage("selectedTheme") private var selectedTheme = "game_fon_1"
     
     var body: some View {
         VStack(spacing: 0) {
@@ -13,12 +13,13 @@ struct GameView: View {
             
             LazyVGrid(
                 columns: Array(repeating: GridItem(.flexible(), spacing: 8),
-                              count: viewModel.currentLevelData.columns),
+                               count: viewModel.currentLevelData.columns),
                 spacing: 8
             ) {
                 ForEach(viewModel.cards) { card in
                     CardView(card: card, viewModel: viewModel)
                         .onTapGesture {
+                            SoundManager.shared.playCardFlip()
                             withAnimation(.easeInOut(duration: 0.3)) {
                                 viewModel.selectCard(card)
                             }
@@ -32,6 +33,7 @@ struct GameView: View {
             HStack {
                 if viewModel.isClickLimitExceeded || viewModel.isTimeUp {
                     Button(action: {
+                        SoundManager.shared.playMultiSound()
                         viewModel.restartLevel()
                     }) {
                         HStack(spacing: 10) {

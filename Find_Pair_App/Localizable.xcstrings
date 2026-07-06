@@ -13,6 +13,9 @@
     "%lld/%lld" : {
 
     },
+    "About Game" : {
+
+    },
     "ad_not_ready" : {
       "localizations" : {
         "en" : {
@@ -192,6 +195,9 @@
           }
         }
       }
+    },
+    "Сброс" : {
+
     }
   },
   "version" : "1.2"

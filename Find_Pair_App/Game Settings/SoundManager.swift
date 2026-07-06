@@ -31,17 +31,17 @@ class SoundManager {
         guard isMusicEnabled else { return }
         
         guard let url = Bundle.main.url(forResource: fileName, withExtension: "mp3") else {
-            print("❌ Файл \(fileName).mp3 не найден")
+            print("❌ File \(fileName).mp3 not find")
             return
         }
         
         do {
             backgroundPlayer = try AVAudioPlayer(contentsOf: url)
             backgroundPlayer?.numberOfLoops = -1
-            backgroundPlayer?.volume = 0.5
+            backgroundPlayer?.volume = 0.35
             backgroundPlayer?.play()
         } catch {
-            print("❌ Ошибка воспроизведения: \(error)")
+            print("❌ Error: \(error)")
         }
     }
     
@@ -62,7 +62,7 @@ class SoundManager {
         guard isSoundEnabled else { return }
         
         guard let url = Bundle.main.url(forResource: fileName, withExtension: "mp3") else {
-            print("❌ Файл \(fileName).mp3 не найден")
+            print("❌ File \(fileName).mp3 not find")
             return
         }
         
@@ -71,12 +71,20 @@ class SoundManager {
             effectPlayer?.volume = 0.7
             effectPlayer?.play()
         } catch {
-            print("❌ Ошибка воспроизведения: \(error)")
+            print("❌ Error: \(error)")
         }
     }
     
     func playHintSound() {
         guard isSoundEnabled else { return }
-        playEffect("hint_sound")
+        playEffect("hint_score")
+    }
+    func playMultiSound() {
+        guard isSoundEnabled else { return }
+        playEffect("multi_sound")
+    }
+    func playCardFlip() {
+        guard isSoundEnabled else { return }
+        playEffect("card_flip")
     }
 }

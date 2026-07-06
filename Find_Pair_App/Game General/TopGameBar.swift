@@ -52,6 +52,7 @@ struct TopGameBar<VM: TopBarViewModelProtocol>: View {
                 VStack {
                     Button(action: {
                         if viewModel.currentHints > 0 {
+                            SoundManager.shared.playHintSound()
                             viewModel.showHint()
                         }
                     }) {
@@ -67,7 +68,7 @@ struct TopGameBar<VM: TopBarViewModelProtocol>: View {
                 }
             }
             
-            HStack(spacing: 8) {
+            HStack(spacing: 4) {
                 ForEach(0..<viewModel.totalPairs, id: \.self) { index in
                     Circle()
                         .fill(index < viewModel.matchedPairs ? Color.green : Color.gray.opacity(0.5))

@@ -3,8 +3,9 @@ import Combine
 
 struct DifficultyMain: View {
     @Environment(\.dismiss) var dismiss
+    @State private var showLevelComplete = false
     @StateObject private var difficultViewModel = DifficultyViewModel()
-    @AppStorage("selectedTheme") private var selectedTheme = "test_1"
+    @AppStorage("selectedTheme") private var selectedTheme = "game_fon_1"
     
     var body: some View {
         ZStack {
@@ -30,6 +31,7 @@ struct DifficultyMain: View {
                         ForEach(difficultViewModel.cards) { card in
                             DifficultyCardView(card: card)
                                 .onTapGesture {
+                                    SoundManager.shared.playCardFlip()
                                     withAnimation(.easeInOut(duration: 0.3)) {
                                         difficultViewModel.selectCard(card)
                                     }
@@ -42,6 +44,7 @@ struct DifficultyMain: View {
                 HStack(spacing: 20) {
                     if difficultViewModel.isClickLimitExceeded || difficultViewModel.isTimeUp {
                         Button(action: {
+                            SoundManager.shared.playMultiSound()
                             withAnimation {
                                 difficultViewModel.restartLevel()
                             }
