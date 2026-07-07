@@ -13,8 +13,178 @@
     "%lld/%lld" : {
 
     },
-    "About Game" : {
+    "10" : {
 
+    },
+    "about_text_1" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A memory like a goldfish? Find out!"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Память как у золотой рыбки? Проверьте!"
+          }
+        }
+      }
+    },
+    "about_text_2" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Everyone here has a partner."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "У всех здесь есть пара."
+          }
+        }
+      }
+    },
+    "about_text_3" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The matchmaking we deserve."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mathmaking, которого мы заслуживаем."
+          }
+        }
+      }
+    },
+    "about_text_4" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your memory has left the chat."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ваша память покинула чат."
+          }
+        }
+      }
+    },
+    "about_text_5" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Even cards have a match."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Даже у карточек есть пара."
+          }
+        }
+      }
+    },
+    "about_text_6" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Check how old you are."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Проверьте, насколько вы стар."
+          }
+        }
+      }
+    },
+    "about_text_7" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Memory and attention training."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Тренировка памяти и внимания."
+          }
+        }
+      }
+    },
+    "about_text_8" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A classic memory-building game."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Классическая игра для развития памяти."
+          }
+        }
+      }
+    },
+    "about_text_9" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Test your attentiveness right now."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Проверьте свою внимательность прямо сейчас."
+          }
+        }
+      }
+    },
+    "about_text_10" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your brain cells are officially invited."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ваши клетки мозга официально приглашены."
+          }
+        }
+      }
     },
     "ad_not_ready" : {
       "localizations" : {
@@ -54,6 +224,176 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Реклама просмотрена, бонус начислен (+ 5 подсказок)."
+          }
+        }
+      }
+    },
+    "click_text_1" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1. In the first game mode, you must flip over cards by clicking on them and find two matching ones."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1. В первом режиме игры вам предстоит нажатием переворачивать карточки и искать 2 одинаковые"
+          }
+        }
+      }
+    },
+    "click_text_2" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "If a pair matches, it will count for you."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Если пара совпадет, она будет засчитана в вашу пользу."
+          }
+        }
+      }
+    },
+    "click_text_3" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "On the top panel, you can use a hint (lightbulb icon) and see how many pairs are left to find (gray circles that turn green when you find a pair)."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "На верхней панели вы сможете воспользоваться подсказкой (иконка лампочки) и увидеть сколько пар осталось найти (серые кружочки, превращающиеся в зеленые, когда вы находите 1 пару)."
+          }
+        }
+      }
+    },
+    "click_text_4" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "2. In the second game mode, the task is the same as in the first; however, the cards are no longer identical, and you must find logical pairs (see example below)."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "2. Во втором режиме игры вам предстоит тоже самое что и в 1, однако теперь карточки не одинаковы, необходимо искать логические пары карт (пример ниже)."
+          }
+        }
+      }
+    },
+    "click_text_5" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "In addition to finding pairs, you will also need to look for sets of three or four such cards (the active mode will be indicated in the game). Future updates will introduce levels with time and click limits."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Кроме того, кроме поиска пары, необходимо будет искать тройки или четверки таких карточек (включенный режим будет обозначаться в игре). Будущие изменения уровней с ограничением по времени и кликам."
+          }
+        }
+      }
+    },
+    "click_text_6" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Good luck!!!"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Удачи!!!"
+          }
+        }
+      }
+    },
+    "description_1" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "We are looking for couples."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Мы ищем пары."
+          }
+        }
+      }
+    },
+    "description_2" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "We are looking for 3 cards."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Мы ищем 3 карточки."
+          }
+        }
+      }
+    },
+    "description_3" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "We are looking for 4 cards."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Мы ищем 4 карточки."
+          }
+        }
+      }
+    },
+    "description_4" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "We're looking for fives."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Мы ищем пятёрки."
           }
         }
       }
@@ -160,6 +500,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "заново"
+          }
+        }
+      }
+    },
+    "Rules_game" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rules of the game"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Правила игры"
           }
         }
       }

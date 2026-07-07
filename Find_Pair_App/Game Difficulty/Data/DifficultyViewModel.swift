@@ -51,11 +51,10 @@ class DifficultyViewModel: ObservableObject {
     
     var levelDescription: String {
         switch requiredMatches {
-        case 2: return "We are looking for couples."
-        case 3: return "We are looking for threesomes."
-        case 4: return "We are looking for foursomes."
-        case 5: return "We're looking for fives."
-        default: return "Search \(requiredMatches) identical"
+        case 2: return NSLocalizedString("description_1", comment: "")
+        case 3: return NSLocalizedString("description_2", comment: "")
+        case 4: return NSLocalizedString("description_3", comment: "")
+        default: return NSLocalizedString("description_4", comment: "")
         }
     }
     
@@ -106,8 +105,8 @@ class DifficultyViewModel: ObservableObject {
     private func checkForMatch() {
         isProcessing = true
         
-        let firstPairID = selectedCards[0].pairID  // ← category → pairID
-        let allMatch = selectedCards.allSatisfy { $0.pairID == firstPairID }  // ← category → pairID
+        let firstPairID = selectedCards[0].pairID
+        let allMatch = selectedCards.allSatisfy { $0.pairID == firstPairID } 
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
             guard let self = self else { return }

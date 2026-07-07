@@ -6,7 +6,9 @@ struct GameSettings: View {
     @AppStorage("isSoundEnabled") private var isSoundEnabled = true
     @AppStorage("selectedTheme") private var selectedTheme = "game_fon_1"
     
-    let imageNames: [String] = ["game_fon_1", "game_fon_2", "game_fon_3", "game_fon_4", "game_fon_5", "game_fon_6", "game_fon_7", "game_fon_8", "game_fon_9"]
+    let imageNames: [String] = ["game_fon_1", "game_fon_2", "game_fon_3",
+                                "game_fon_4", "game_fon_5", "game_fon_6",
+                                "game_fon_7", "game_fon_8", "game_fon_9"]
     let columns = Array(repeating: GridItem(.flexible(), spacing: 15), count: 3)
     
     var body: some View {
@@ -90,12 +92,8 @@ struct GameSettings: View {
                     }
                     .padding(.horizontal, 10)
                     
-                    Text("About Game")
-                        .foregroundColor(.white)
-                        .padding(.top, 10)
-                        .font(.system(size: 28))
-                        .fontWeight(.bold)
-
+                    GameRules()
+                    
                 }
                 .padding(.vertical, 20)
             }
