@@ -23,10 +23,32 @@ struct DifficultyGameData {
         ("IMG_0725", "pair_18"), ("IMG_0726", "pair_18"), ("IMG_0727", "pair_18"), ("IMG_0728", "pair_18"),
         ("IMG_0729", "pair_19"), ("IMG_0730", "pair_19"), ("IMG_0731", "pair_19"), ("IMG_0732", "pair_19"),
         ("IMG_0733", "pair_20"), ("IMG_0734", "pair_20"), ("IMG_0735", "pair_20"), ("IMG_0736", "pair_20"),
-        ("IMG_0737", "pair_21"), ("IMG_0738", "pair_21"), ("IMG_0739", "pair_21"), ("IMG_0740", "pair_21")
+        ("IMG_0737", "pair_21"), ("IMG_0738", "pair_21"), ("IMG_0739", "pair_21"), ("IMG_0740", "pair_21"),
+        ("IMG_0741", "pair_22"), ("IMG_0742", "pair_22"), ("IMG_0743", "pair_22"), ("IMG_0744", "pair_22"),
+        ("IMG_0745", "pair_23"), ("IMG_0746", "pair_23"), ("IMG_0747", "pair_23"), ("IMG_0748", "pair_23"),
+        ("IMG_0749", "pair_24"), ("IMG_0750", "pair_24"), ("IMG_0751", "pair_24"), ("IMG_0752", "pair_24"),
+        ("IMG_0753", "pair_25"), ("IMG_0754", "pair_25"), ("IMG_0755", "pair_25"), ("IMG_0756", "pair_25"),
+        ("IMG_0757", "pair_26"), ("IMG_0758", "pair_26"), ("IMG_0759", "pair_26"), ("IMG_0760", "pair_26"),
+        ("IMG_0761", "pair_27"), ("IMG_0762", "pair_27"), ("IMG_0763", "pair_27"), ("IMG_0764", "pair_27"),
+        ("IMG_0775", "pair_28"), ("IMG_0776", "pair_28"), ("IMG_0777", "pair_28"), ("IMG_0778", "pair_28"),
+        ("IMG_0779", "pair_29"), ("IMG_0780", "pair_29"), ("IMG_0781", "pair_29"), ("IMG_0782", "pair_29"),
+        ("IMG_0784", "pair_30"), ("IMG_0785", "pair_30"), ("IMG_0786", "pair_30"), ("IMG_0787", "pair_30"),
+        ("IMG_0788", "pair_31"), ("IMG_0789", "pair_31"), ("IMG_0790", "pair_31"), ("IMG_0791", "pair_31"),
+        ("IMG_0792", "pair_32"), ("IMG_0793", "pair_32"), ("IMG_0794", "pair_32"), ("IMG_0795", "pair_32"),
+        ("IMG_0796", "pair_33"), ("IMG_0797", "pair_33"), ("IMG_0798", "pair_33"), ("IMG_0799", "pair_33"),
+        ("IMG_0800", "pair_34"), ("IMG_0801", "pair_34"), ("IMG_0802", "pair_34"), ("IMG_0803", "pair_34"),
+        ("IMG_0804", "pair_35"), ("IMG_0805", "pair_35"), ("IMG_0806", "pair_35"), ("IMG_0807", "pair_35"),
+        ("IMG_0808", "pair_36"), ("IMG_0809", "pair_36"), ("IMG_0810", "pair_36"), ("IMG_0811", "pair_36"),
+        ("IMG_0812", "pair_37"), ("IMG_0813", "pair_37"), ("IMG_0814", "pair_37"), ("IMG_0815", "pair_37"),
+        ("IMG_0816", "pair_38"), ("IMG_0817", "pair_38"), ("IMG_0818", "pair_38"), ("IMG_0819", "pair_38"),
+        ("IMG_0820", "pair_39"), ("IMG_0821", "pair_39"), ("IMG_0822", "pair_39"), ("IMG_0823", "pair_39"),
+        ("IMG_0824", "pair_40"), ("IMG_0825", "pair_40"), ("IMG_0826", "pair_40"), ("IMG_0827", "pair_40"),
+        ("IMG_0828", "pair_41"), ("IMG_0829", "pair_41"), ("IMG_0830", "pair_41"), ("IMG_0831", "pair_41"),
+        ("IMG_0832", "pair_42"), ("IMG_0833", "pair_42"), ("IMG_0834", "pair_42"), ("IMG_0835", "pair_42")
     ]
     
     static func cardsFromRandomGroups(_ groupCount: Int, cardsPerGroup: Int) -> [(imageName: String, pairID: String)] {
+
         let allPairIDs = Array(Set(myCards.map { $0.pairID })).shuffled()
         let selectedPairIDs = Array(allPairIDs.prefix(groupCount))
         
@@ -35,33 +57,29 @@ struct DifficultyGameData {
             let groupCards = myCards.filter { $0.pairID == pairID }
             result += Array(groupCards.shuffled().prefix(cardsPerGroup))
         }
-        return result
+        return result.shuffled()
     }
     
     static let levelCategories: [(items: [(imageName: String, pairID: String)], matchCount: Int, columns: Int)] = [
+        // 2
         (items: cardsFromRandomGroups(2, cardsPerGroup: 2), matchCount: 2, columns: 2),
         (items: cardsFromRandomGroups(4, cardsPerGroup: 2), matchCount: 2, columns: 3),
         (items: cardsFromRandomGroups(6, cardsPerGroup: 2), matchCount: 2, columns: 3),
-        
-        // Уровень 4: ТРОЙКИ — 2 группы × 3 карточки (6 карточек, сетка 3×2)
-        /*(items: cardsFromRandomGroups(2, cardsPerGroup: 3), matchCount: 3),
-        
-        // Уровень 5: ТРОЙКИ — 3 группы × 3 карточки (9 карточек, сетка 3×3)
-        (items: cardsFromRandomGroups(3, cardsPerGroup: 3), matchCount: 3),
-        
-        // Уровень 6: ТРОЙКИ — 4 группы × 3 карточки (12 карточек, сетка 4×3)
-        (items: cardsFromRandomGroups(4, cardsPerGroup: 3), matchCount: 3),
-        
-        // Уровень 7: ЧЕТВЕРКИ — 2 группы × 4 карточки (8 карточек, сетка 4×2)
-        (items: cardsFromRandomGroups(2, cardsPerGroup: 4), matchCount: 4),
-        
-        // Уровень 8: ЧЕТВЕРКИ — 3 группы × 4 карточки (12 карточек, сетка 4×3)
-        (items: cardsFromRandomGroups(3, cardsPerGroup: 4), matchCount: 4),
-        
-        // Уровень 9: ЧЕТВЕРКИ — 4 группы × 4 карточки (16 карточек, сетка 4×4)
-        (items: cardsFromRandomGroups(4, cardsPerGroup: 4), matchCount: 4),
-        
-        // Уровень 10: ЧЕТВЕРКИ — 5 групп × 4 карточки (20 карточек, сетка 5×4)
-        (items: cardsFromRandomGroups(5, cardsPerGroup: 4), matchCount: 4)*/
+        (items: cardsFromRandomGroups(8, cardsPerGroup: 2), matchCount: 2, columns: 4),
+        (items: cardsFromRandomGroups(10, cardsPerGroup: 2), matchCount: 2, columns: 4),
+        // 3
+        (items: cardsFromRandomGroups(3, cardsPerGroup: 3), matchCount: 3, columns: 3),
+        (items: cardsFromRandomGroups(4, cardsPerGroup: 3), matchCount: 3, columns: 3),
+        (items: cardsFromRandomGroups(5, cardsPerGroup: 3), matchCount: 3, columns: 4),
+        (items: cardsFromRandomGroups(6, cardsPerGroup: 3), matchCount: 3, columns: 4),
+        (items: cardsFromRandomGroups(7, cardsPerGroup: 3), matchCount: 3, columns: 5),
+        // 4
+        (items: cardsFromRandomGroups(4, cardsPerGroup: 4), matchCount: 4, columns: 4),
+        (items: cardsFromRandomGroups(5, cardsPerGroup: 4), matchCount: 4, columns: 4),
+        (items: cardsFromRandomGroups(6, cardsPerGroup: 4), matchCount: 4, columns: 5),
+        (items: cardsFromRandomGroups(7, cardsPerGroup: 4), matchCount: 4, columns: 5),
+        (items: cardsFromRandomGroups(9, cardsPerGroup: 4), matchCount: 4, columns: 6),
+        (items: cardsFromRandomGroups(10, cardsPerGroup: 4), matchCount: 4, columns: 6),
+        (items: cardsFromRandomGroups(12, cardsPerGroup: 4), matchCount: 4, columns: 6),
     ]
 }

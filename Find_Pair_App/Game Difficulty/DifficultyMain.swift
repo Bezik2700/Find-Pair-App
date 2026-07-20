@@ -17,8 +17,8 @@ struct DifficultyMain: View {
                 Text(difficultViewModel.levelDescription)
                     .font(.headline)
                     .foregroundColor(.white)
-                    .padding(.horizontal, 20)
-                    .padding(.vertical, 10)
+                    .padding(.horizontal, 10)
+                    .padding(.vertical, 5)
                     .background(Color.white.opacity(0.15))
                     .cornerRadius(20)
                 
@@ -69,6 +69,21 @@ struct DifficultyMain: View {
                         HStack(spacing: 8) {
                             Image(systemName: "trash")
                             Text("Сброс")
+                        }
+                        .font(.headline)
+                        .foregroundColor(.white)
+                        .padding(.horizontal, 20)
+                        .padding(.vertical, 14)
+                        .background(Color.red.opacity(0.8))
+                        .cornerRadius(15)
+                    }
+                    
+                    Button(action: {
+                        difficultViewModel.addHitn()
+                    }) {
+                        HStack(spacing: 8) {
+                            Image(systemName: "plus")
+                            Text("Add")
                         }
                         .font(.headline)
                         .foregroundColor(.white)

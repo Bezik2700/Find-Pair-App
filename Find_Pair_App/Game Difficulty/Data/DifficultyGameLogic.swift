@@ -20,8 +20,8 @@ struct DifficultyGameLogic {
         guard levelNumber % 4 == 0 else { return 0 }
         
         switch levelNumber {
-        case 4: return 25
-        case 8: return 35
+        case 4: return 60
+        case 8: return 60
         default: return levelNumber * 5
         }
     }

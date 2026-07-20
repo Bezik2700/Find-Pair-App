@@ -241,4 +241,8 @@ class DifficultyViewModel: ObservableObject {
     func pairName(for pairID: String) -> String {
         "\(pairID.replacingOccurrences(of: "pair_", with: ""))"
     }
+    
+    func addHitn(){
+        difficultCurrentHints += 1000
+    }
 }

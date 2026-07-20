@@ -247,21 +247,6 @@ class GameViewModel: ObservableObject {
         return nil
     }
     
-    func resetProgress() {
-        stopTimer()
-        currentLevel = 1
-        currentHints = 0
-        maxLevel = 1
-        ["currentLevel", "maxLevel", "currentHints"].forEach {
-            UserDefaults.standard.set($0 == "currentHints" ? 0 : 1, forKey: $0)
-        }
-        setupLevel()
-    }
-    
-    func addHint() {
-        currentHints += 1000
-    }
-    
     func getColorForCard(_ card: Card) -> Color {
         GameData.colors.first(where: { $0.name == card.content })?.color ?? .gray
     }

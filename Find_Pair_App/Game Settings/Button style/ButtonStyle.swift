@@ -33,7 +33,7 @@ struct SettingsIconButtonStyle: ButtonStyle {
             .frame(width: 64, height: 64)
             .background(
                 LinearGradient(
-                    colors: configuration.isPressed ? [.gray.opacity(0.6), .black.opacity(0.8)] : [.blue, .purple],
+                    colors: configuration.isPressed ? [.gray.opacity(0.6), .black.opacity(0.8)] : [.green, .red],
                     startPoint: .topLeading,
                     endPoint: .bottomTrailing
                 )

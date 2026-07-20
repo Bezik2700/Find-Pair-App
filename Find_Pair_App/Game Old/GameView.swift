@@ -48,28 +48,6 @@ struct GameView: View {
                     .padding(.horizontal, 40)        
                     .transition(.opacity.combined(with: .scale(scale: 0.95)))
                 }
-
-                
-                // отладочные кнопки
-                Button(action: {
-                    viewModel.resetProgress()
-                }) {
-                    HStack {
-                        Text("reset")
-                            .font(.title2)
-                            .fontWeight(.semibold)
-                    }
-                }
-                
-                Button(action: {
-                    viewModel.addHint()
-                }) {
-                    HStack {
-                        Text("add")
-                            .font(.title2)
-                            .fontWeight(.semibold)
-                    }
-                }
             }
             
             BottomGameBar()

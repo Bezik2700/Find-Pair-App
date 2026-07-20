@@ -203,6 +203,7 @@
       }
     },
     "add" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -211,6 +212,9 @@
           }
         }
       }
+    },
+    "Add" : {
+
     },
     "add_hints" : {
       "localizations" : {
@@ -224,6 +228,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Реклама просмотрена, бонус начислен (+ 5 подсказок)."
+          }
+        }
+      }
+    },
+    "add_hints_button" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "get hints"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "получить подсказки"
+          }
+        }
+      }
+    },
+    "add_hints_button_2" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "for watching ads"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "за просмотр рекламы"
           }
         }
       }
@@ -479,6 +517,7 @@
       }
     },
     "reset" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -496,10 +535,16 @@
     },
     "restart" : {
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Restart"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "заново"
+            "value" : "Заново"
           }
         }
       }

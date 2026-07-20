@@ -15,8 +15,8 @@ struct ContentView: View {
     @State private var alertMessage = ""
     
     @AppStorage("currentHints") private var currentHints = 0
-    @AppStorage("selectedTheme") private var selectedTheme = "game_fon_1"
     @AppStorage("difficultCurrentHints") private var difficultCurrentHints = 0
+    @AppStorage("selectedTheme") private var selectedTheme = "game_fon_1"
     
     var body: some View {
         NavigationStack {
@@ -27,10 +27,8 @@ struct ContentView: View {
                     .aspectRatio(contentMode: .fill)
                     .ignoresSafeArea()
                 
-                Color.black.opacity(0.5)
-                    .ignoresSafeArea()
-                
-                VStack (spacing: 24) {
+                VStack(spacing: 16) {
+                    
                     HStack {
                         
                         Spacer()
@@ -43,36 +41,8 @@ struct ContentView: View {
                         }
                         .buttonStyle(SettingsIconButtonStyle())
                     }
-                    .padding(.trailing, 30)
-                    
-                    HStack {
-                        
-                        Spacer()
-                        
-                        Button(action: {
-                            SoundManager.shared.playMultiSound()
-                            if rewardedManager.isAdReady {
-                                rewardedManager.showAd {
-                                    currentHints += addHints
-                                    difficultCurrentHints += addHints
-                                    alertMessage = NSLocalizedString("add_hints", comment: "")
-                                    showAlert = true
-                                }
-                            } else {
-                                alertMessage = NSLocalizedString("ad_not_ready", comment: "")
-                                showAlert = true
-                            }
-                        }) {
-                            Image(systemName: "play.rectangle.fill")
-                        }
-                        .buttonStyle(SettingsIconButtonStyle())
-                    }
-                    .padding(.trailing, 30)
                     
                     Spacer()
-                }
-                
-                VStack(spacing: 16) {
                     
                     Button(action: {
                         SoundManager.shared.playMultiSound()
@@ -90,8 +60,37 @@ struct ContentView: View {
                     }
                     .buttonStyle(GameMenuButtonStyle(gradientColors: [.red, .orange]))
                     
+                    Spacer()
+                    
+                    Button(action: {
+                        SoundManager.shared.playMultiSound()
+                        if rewardedManager.isAdReady {
+                            rewardedManager.showAd {
+                                currentHints += addHints
+                                difficultCurrentHints += addHints
+                                alertMessage = NSLocalizedString("add_hints", comment: "")
+                                showAlert = true
+                            }
+                        } else {
+                            alertMessage = NSLocalizedString("ad_not_ready", comment: "")
+                            showAlert = true
+                        }
+                    }) {
+                        HStack (spacing: 50) {
+                            Image(systemName: "play.rectangle.fill")
+                                .font(.system(size: 40))
+                            VStack {
+                                Text(NSLocalizedString("add_hints_button", comment: ""))
+                                    .font(.system(size: 20))
+                                Text(NSLocalizedString("add_hints_button_2", comment: ""))
+                                    .font(.system(size: 12))
+                                
+                            }
+                        }
+                    }
+                    .buttonStyle(GameMenuButtonStyle(gradientColors: [.green, .init(red: 0.3, green: 0.3, blue: 0.3)]))  
                 }
-                .padding(.horizontal, 32)
+                .padding(.horizontal, 48)
             }
             .alert("notification", isPresented: $showAlert) {
                 Button("ok", role: .cancel) { }
