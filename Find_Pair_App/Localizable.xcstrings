@@ -202,17 +202,6 @@
         }
       }
     },
-    "add" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "add"
-          }
-        }
-      }
-    },
     "Add" : {
 
     },
@@ -374,13 +363,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "We are looking for couples."
+            "value" : "We are looking for couples (1-20 lvl)"
           }
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Мы ищем пары."
+            "state" : "needs_review",
+            "value" : "Мы ищем пары (1-20 ур)"
           }
         }
       }
@@ -391,13 +380,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "We are looking for 3 cards."
+            "value" : "We are looking for 3 cards (21-65 lvl)"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Мы ищем 3 карточки."
+            "value" : "Мы ищем 3 карточки (21-65 ур)"
           }
         }
       }
@@ -408,13 +397,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "We are looking for 4 cards."
+            "value" : "We are looking for 4 cards (65 - 150 lvl)"
           }
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Мы ищем 4 карточки."
+            "state" : "needs_review",
+            "value" : "Мы ищем 4 карточки (65 - 150 ур)"
           }
         }
       }
@@ -512,23 +501,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "ок"
-          }
-        }
-      }
-    },
-    "reset" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "reset"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "сбросить"
           }
         }
       }

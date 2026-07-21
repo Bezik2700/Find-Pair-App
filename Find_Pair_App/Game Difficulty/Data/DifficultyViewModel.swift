@@ -231,7 +231,7 @@ class DifficultyViewModel: ObservableObject {
     }
     
     func addHintShowReward() {
-        difficultCurrentHints += 10
+        difficultCurrentHints += 5
     }
     
     var isLevelComplete: Bool {

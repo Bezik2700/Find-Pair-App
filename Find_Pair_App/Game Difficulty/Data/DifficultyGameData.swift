@@ -44,7 +44,15 @@ struct DifficultyGameData {
         ("IMG_0820", "pair_39"), ("IMG_0821", "pair_39"), ("IMG_0822", "pair_39"), ("IMG_0823", "pair_39"),
         ("IMG_0824", "pair_40"), ("IMG_0825", "pair_40"), ("IMG_0826", "pair_40"), ("IMG_0827", "pair_40"),
         ("IMG_0828", "pair_41"), ("IMG_0829", "pair_41"), ("IMG_0830", "pair_41"), ("IMG_0831", "pair_41"),
-        ("IMG_0832", "pair_42"), ("IMG_0833", "pair_42"), ("IMG_0834", "pair_42"), ("IMG_0835", "pair_42")
+        ("IMG_0832", "pair_42"), ("IMG_0833", "pair_42"), ("IMG_0834", "pair_42"), ("IMG_0835", "pair_42"),
+        ("IMG_0836", "pair_43"), ("IMG_0837", "pair_43"), ("IMG_0838", "pair_43"), ("IMG_0839", "pair_43"),
+        ("IMG_0840", "pair_44"), ("IMG_0841", "pair_44"), ("IMG_0842", "pair_44"), ("IMG_0843", "pair_44"),
+        ("IMG_0844", "pair_45"), ("IMG_0845", "pair_45"), ("IMG_0846", "pair_45"), ("IMG_0847", "pair_45"),
+        ("IMG_0848", "pair_46"), ("IMG_0849", "pair_46"), ("IMG_0850", "pair_46"), ("IMG_0851", "pair_46"),
+        ("IMG_0852", "pair_47"), ("IMG_0853", "pair_47"), ("IMG_0854", "pair_47"), ("IMG_0855", "pair_47"),
+        ("IMG_0856", "pair_48"), ("IMG_0857", "pair_48"), ("IMG_0858", "pair_48"), ("IMG_0859", "pair_48"),
+        ("IMG_0860", "pair_49"), ("IMG_0861", "pair_49"), ("IMG_0862", "pair_49"), ("IMG_0863", "pair_49"),
+        ("IMG_0864", "pair_50"), ("IMG_0865", "pair_50"), ("IMG_0866", "pair_50"), ("IMG_0867", "pair_50")
     ]
     
     static func cardsFromRandomGroups(_ groupCount: Int, cardsPerGroup: Int) -> [(imageName: String, pairID: String)] {
@@ -60,26 +68,46 @@ struct DifficultyGameData {
         return result.shuffled()
     }
     
-    static let levelCategories: [(items: [(imageName: String, pairID: String)], matchCount: Int, columns: Int)] = [
-        // 2
-        (items: cardsFromRandomGroups(2, cardsPerGroup: 2), matchCount: 2, columns: 2),
-        (items: cardsFromRandomGroups(4, cardsPerGroup: 2), matchCount: 2, columns: 3),
-        (items: cardsFromRandomGroups(6, cardsPerGroup: 2), matchCount: 2, columns: 3),
-        (items: cardsFromRandomGroups(8, cardsPerGroup: 2), matchCount: 2, columns: 4),
-        (items: cardsFromRandomGroups(10, cardsPerGroup: 2), matchCount: 2, columns: 4),
-        // 3
-        (items: cardsFromRandomGroups(3, cardsPerGroup: 3), matchCount: 3, columns: 3),
-        (items: cardsFromRandomGroups(4, cardsPerGroup: 3), matchCount: 3, columns: 3),
-        (items: cardsFromRandomGroups(5, cardsPerGroup: 3), matchCount: 3, columns: 4),
-        (items: cardsFromRandomGroups(6, cardsPerGroup: 3), matchCount: 3, columns: 4),
-        (items: cardsFromRandomGroups(7, cardsPerGroup: 3), matchCount: 3, columns: 5),
-        // 4
-        (items: cardsFromRandomGroups(4, cardsPerGroup: 4), matchCount: 4, columns: 4),
-        (items: cardsFromRandomGroups(5, cardsPerGroup: 4), matchCount: 4, columns: 4),
-        (items: cardsFromRandomGroups(6, cardsPerGroup: 4), matchCount: 4, columns: 5),
-        (items: cardsFromRandomGroups(7, cardsPerGroup: 4), matchCount: 4, columns: 5),
-        (items: cardsFromRandomGroups(9, cardsPerGroup: 4), matchCount: 4, columns: 6),
-        (items: cardsFromRandomGroups(10, cardsPerGroup: 4), matchCount: 4, columns: 6),
-        (items: cardsFromRandomGroups(12, cardsPerGroup: 4), matchCount: 4, columns: 6),
-    ]
+    static let levelCategories: [(items: [(imageName: String, pairID: String)], matchCount: Int, columns: Int)] = {
+        
+        var categories: [(items: [(imageName: String, pairID: String)], matchCount: Int, columns: Int)] = []
+        let levelConfigs: [(groupCount: Int, cardsPerGroup: Int, matchCount: Int, columns: Int, repeatCount: Int)] = [
+            // 2
+            (2, 2, 2, 2, 4),
+            (4, 2, 2, 3, 4),
+            (6, 2, 2, 3, 4),
+            (8, 2, 2, 4, 4),
+            (10, 2, 2, 4, 4),
+            
+            // 3
+            (3, 3, 3, 3, 5),
+            (4, 3, 3, 3, 5),
+            (5, 3, 3, 4, 5),
+            (6, 3, 3, 4, 5),
+            (7, 3, 3, 4, 5),
+            (8, 3, 3, 5, 5),
+            (10, 3, 3, 5, 5),
+            
+            // 4
+            (4, 4, 4, 4, 6),
+            (5, 4, 4, 4, 6),
+            (6, 4, 4, 5, 6),
+            (7, 4, 4, 5, 6),
+            (9, 4, 4, 6, 6),
+            (10, 4, 4, 6, 6),
+            (12, 4, 4, 6, 58),
+        ]
+        
+        for config in levelConfigs {
+            for _ in 0..<config.repeatCount {
+                categories.append((
+                    items: cardsFromRandomGroups(config.groupCount, cardsPerGroup: config.cardsPerGroup),
+                    matchCount: config.matchCount,
+                    columns: config.columns
+                ))
+            }
+        }
+        
+        return categories
+    }()
 }
