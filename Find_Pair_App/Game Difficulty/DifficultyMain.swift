@@ -62,36 +62,6 @@ struct DifficultyMain: View {
                         }
                         .transition(.scale.combined(with: .opacity))
                     }
-                    
-                    Button(action: {
-                        difficultViewModel.resetProgress()
-                    }) {
-                        HStack(spacing: 8) {
-                            Image(systemName: "trash")
-                            Text("Сброс")
-                        }
-                        .font(.headline)
-                        .foregroundColor(.white)
-                        .padding(.horizontal, 20)
-                        .padding(.vertical, 14)
-                        .background(Color.red.opacity(0.8))
-                        .cornerRadius(15)
-                    }
-                    
-                    Button(action: {
-                        difficultViewModel.addHitn()
-                    }) {
-                        HStack(spacing: 8) {
-                            Image(systemName: "plus")
-                            Text("Add")
-                        }
-                        .font(.headline)
-                        .foregroundColor(.white)
-                        .padding(.horizontal, 20)
-                        .padding(.vertical, 14)
-                        .background(Color.red.opacity(0.8))
-                        .cornerRadius(15)
-                    }
                 }
                 .animation(.easeInOut, value: difficultViewModel.isClickLimitExceeded)
                 .animation(.easeInOut, value: difficultViewModel.isTimeUp)

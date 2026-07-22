@@ -58,6 +58,18 @@ class DifficultyViewModel: ObservableObject {
         }
     }
     
+    var hintCost: Int {
+        if difficultyCurrentLevel <= 20 {
+            return 2
+        } else if difficultyCurrentLevel >= 21 && difficultyCurrentLevel <= 55 {
+            return 3
+        } else if difficultyCurrentLevel >= 56 {
+            return 4
+        } else {
+            return 5
+        }
+    }
+    
     func setupLevel() {
         requiredMatches = DifficultyGameLogic.matchCount(for: difficultyCurrentLevel)
         totalPairs = DifficultyGameLogic.totalPairs(for: difficultyCurrentLevel)
@@ -142,7 +154,7 @@ class DifficultyViewModel: ObservableObject {
     func showHint() {
         guard !isHintActive, !isProcessing else { return }
         isHintActive = true
-        difficultCurrentHints -= 1
+        difficultCurrentHints -= hintCost
         
         var updatedCards = cards
         for i in updatedCards.indices {

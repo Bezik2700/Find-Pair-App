@@ -199,9 +199,9 @@ class GameViewModel: ObservableObject {
     }
     
     func showHint() {
-        guard !isHintActive, !isProcessing, currentHints > 0 else { return }
+        guard !isHintActive, !isProcessing, currentHints > 1 else { return }
         isHintActive = true
-        currentHints -= 1
+        currentHints -= 2
         
         if let first = firstSelectedCard {
             cards.firstIndex(where: { $0.id == first.id }).map { cards[$0].isFaceUp = false }

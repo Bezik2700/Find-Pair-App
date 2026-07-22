@@ -8,7 +8,10 @@ struct TopGameBar<VM: TopBarViewModelProtocol>: View {
         VStack {
             HStack {
                 VStack {
-                    Button(action: { dismiss() }) {
+                    Button(action: {
+                        dismiss()
+                        SoundManager.shared.playMultiSound()
+                    }) {
                         Image(systemName: "chevron.left")
                             .font(.system(size: 25))
                             .foregroundColor(.white)

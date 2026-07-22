@@ -95,7 +95,7 @@ struct DifficultyGameData {
             (7, 4, 4, 5, 6),
             (9, 4, 4, 6, 6),
             (10, 4, 4, 6, 6),
-            (12, 4, 4, 6, 58),
+            (12, 4, 4, 6, 65),
         ]
         
         for config in levelConfigs {

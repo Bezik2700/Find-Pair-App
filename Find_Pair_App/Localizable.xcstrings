@@ -2,19 +2,204 @@
   "sourceLanguage" : "en",
   "strings" : {
     "?" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "?"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "?"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "?"
+          }
+        },
+        "ru-RU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "?"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "?"
+          }
+        }
+      }
     },
     "%@" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        },
+        "ru-RU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        }
+      }
     },
     "%lld" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld"
+          }
+        },
+        "ru-RU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld"
+          }
+        }
+      }
     },
     "%lld/%lld" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld/%lld"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld/%lld"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld/%lld"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld/%lld"
+          }
+        },
+        "ru-RU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld/%lld"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld/%lld"
+          }
+        }
+      }
     },
     "10" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "10"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "10"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "10"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "10"
+          }
+        },
+        "ru-RU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "10"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "10"
+          }
+        }
+      }
     },
     "about_text_1" : {
       "extractionState" : "manual",
@@ -25,10 +210,34 @@
             "value" : "A memory like a goldfish? Find out!"
           }
         },
-        "ru" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Tienes memoria de pez? ¡Descúbrelo!"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Une mémoire de poisson rouge ? Découvrez-le !"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "क्या आपकी याददाश्त गोल्डफ़िश जैसी है? पता लगाएँ!"
+          }
+        },
+        "ru-RU" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Память как у золотой рыбки? Проверьте!"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "记忆力像金鱼一样差？来测测看！"
           }
         }
       }
@@ -42,10 +251,34 @@
             "value" : "Everyone here has a partner."
           }
         },
-        "ru" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Todos aquí tienen pareja."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tout le monde ici a un partenaire."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "यहाँ हर किसी का एक पार्टनर है।"
+          }
+        },
+        "ru-RU" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "У всех здесь есть пара."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "这里的每个人都有伴侣。"
           }
         }
       }
@@ -59,10 +292,34 @@
             "value" : "The matchmaking we deserve."
           }
         },
-        "ru" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El casamentero que merecemos."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le système de matchmaking que nous méritons."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ऐसी मैचमेकिंग जिसके हम हकदार हैं।"
+          }
+        },
+        "ru-RU" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mathmaking, которого мы заслуживаем."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "我们应得的匹配机制。"
           }
         }
       }
@@ -76,10 +333,34 @@
             "value" : "Your memory has left the chat."
           }
         },
-        "ru" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tu memoria ha abandonado el chat."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Votre mémoire a quitté la conversation."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "आपकी याददाश्त गायब हो गई है।"
+          }
+        },
+        "ru-RU" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ваша память покинула чат."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "你的记忆已退出群聊。"
           }
         }
       }
@@ -93,10 +374,34 @@
             "value" : "Even cards have a match."
           }
         },
-        "ru" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Incluso las cartas tienen pareja."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Même les cartes ont une paire."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ताश के पत्तों की भी जोड़ी होती है।"
+          }
+        },
+        "ru-RU" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Даже у карточек есть пара."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "就连牌也有配对。"
           }
         }
       }
@@ -110,10 +415,34 @@
             "value" : "Check how old you are."
           }
         },
-        "ru" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Comprueba qué edad tienes."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vérifiez votre âge."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "देखें कि आप कितने साल के हैं।"
+          }
+        },
+        "ru-RU" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Проверьте, насколько вы стар."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "查看你的年龄。"
           }
         }
       }
@@ -127,10 +456,34 @@
             "value" : "Memory and attention training."
           }
         },
-        "ru" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Entrenamiento de la memoria y la atención."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Entraînement de la mémoire et de l'attention."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "याददाश्त और ध्यान की ट्रेनिंग।"
+          }
+        },
+        "ru-RU" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Тренировка памяти и внимания."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "记忆与注意力训练。"
           }
         }
       }
@@ -144,10 +497,34 @@
             "value" : "A classic memory-building game."
           }
         },
-        "ru" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Un juego clásico para desarrollar la memoria."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Un jeu classique pour développer la mémoire."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "याददाश्त बढ़ाने वाला एक क्लासिक गेम।"
+          }
+        },
+        "ru-RU" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Классическая игра для развития памяти."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "一款经典的记忆力游戏。"
           }
         }
       }
@@ -161,10 +538,34 @@
             "value" : "Test your attentiveness right now."
           }
         },
-        "ru" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pon a prueba tu atención ahora mismo."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Testez votre attention dès maintenant."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "अभी अपनी सतर्कता की जाँच करें।"
+          }
+        },
+        "ru-RU" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Проверьте свою внимательность прямо сейчас."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "现在就测试一下你的注意力。"
           }
         }
       }
@@ -178,10 +579,34 @@
             "value" : "Your brain cells are officially invited."
           }
         },
-        "ru" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tus células cerebrales están oficialmente invitadas."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vos cellules cérébrales sont officiellement invitées."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "आपके ब्रेन सेल्स को आधिकारिक तौर पर आमंत्रित किया जाता है।"
+          }
+        },
+        "ru-RU" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ваши клетки мозга официально приглашены."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "诚邀您的脑细胞参与。"
           }
         }
       }
@@ -194,29 +619,74 @@
             "value" : "The advertisement has not loaded; please wait."
           }
         },
-        "ru" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El anuncio no se ha cargado; por favor, espere."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La publicité ne s'est pas chargée ; veuillez patienter."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "विज्ञापन लोड नहीं हुआ है; कृपया प्रतीक्षा करें।"
+          }
+        },
+        "ru-RU" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Реклама не загружена, пожалуйста подождите."
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "广告尚未加载，请稍候。"
+          }
         }
       }
-    },
-    "Add" : {
-
     },
     "add_hints" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Advertising viewed, bonus awarded (+ 5 tips)."
+            "value" : "Advertising viewed, bonus awarded (+ 10 points)"
           }
         },
-        "ru" : {
+        "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Реклама просмотрена, бонус начислен (+ 5 подсказок)."
+            "value" : "Anuncio visto, bonificación otorgada (+ 10 puntos)"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Publicité visionnée, bonus attribué (+ 10 points)"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "विज्ञापन देखा गया, बोनस मिला (+ 10 पॉइंट्स)"
+          }
+        },
+        "ru-RU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Реклама просмотрена, бонус начислен (+ 10 очков)"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已观看广告，已发放奖励（+10 积分）"
           }
         }
       }
@@ -230,10 +700,34 @@
             "value" : "get hints"
           }
         },
-        "ru" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "obtener pistas"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Obtenir des indices"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "संकेत प्राप्त करें"
+          }
+        },
+        "ru-RU" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "получить подсказки"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "获取提示"
           }
         }
       }
@@ -247,10 +741,34 @@
             "value" : "for watching ads"
           }
         },
-        "ru" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "por ver anuncios"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "pour regarder des publicités"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "विज्ञापन देखने के लिए"
+          }
+        },
+        "ru-RU" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "за просмотр рекламы"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "观看广告"
           }
         }
       }
@@ -264,10 +782,34 @@
             "value" : "1. In the first game mode, you must flip over cards by clicking on them and find two matching ones."
           }
         },
-        "ru" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1. En el primer modo de juego, debes voltear las cartas haciendo clic en ellas y encontrar dos que coincidan."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1. Dans le premier mode de jeu, vous devez retourner des cartes en cliquant dessus et en trouver deux identiques."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1. पहले गेम मोड में, आपको कार्ड्स पर क्लिक करके उन्हें पलटना होगा और दो एक जैसे कार्ड्स खोजने होंगे।"
+          }
+        },
+        "ru-RU" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "1. В первом режиме игры вам предстоит нажатием переворачивать карточки и искать 2 одинаковые"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1. 在第一种游戏模式中，你需要通过点击来翻开卡片，并找出两张相同的卡片。"
           }
         }
       }
@@ -281,10 +823,34 @@
             "value" : "If a pair matches, it will count for you."
           }
         },
-        "ru" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Si un par coincide, contará para ti."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Si une paire correspond, elle comptera pour vous."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "अगर कोई जोड़ी मेल खाती है, तो उसे आपके लिए गिना जाएगा।"
+          }
+        },
+        "ru-RU" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Если пара совпадет, она будет засчитана в вашу пользу."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "如果凑成了一对，就会计入你的成绩。"
           }
         }
       }
@@ -298,10 +864,34 @@
             "value" : "On the top panel, you can use a hint (lightbulb icon) and see how many pairs are left to find (gray circles that turn green when you find a pair)."
           }
         },
-        "ru" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "En el panel superior, puedes usar una pista (icono de bombilla) y ver cuántas parejas quedan por encontrar (círculos grises que se vuelven verdes al encontrar una pareja)."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dans le panneau supérieur, vous pouvez utiliser un indice (icône d'ampoule) et voir combien de paires il reste à trouver (cercles gris qui deviennent verts lorsque vous trouvez une paire)."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ऊपर वाले पैनल पर, आप हिंट (लाइटबल्ब का आइकॉन) का इस्तेमाल कर सकते हैं और देख सकते हैं कि कितने जोड़े ढूंढने बाकी हैं (ग्रे रंग के गोले जो जोड़ा मिलने पर हरे हो जाते हैं)।"
+          }
+        },
+        "ru-RU" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "На верхней панели вы сможете воспользоваться подсказкой (иконка лампочки) и увидеть сколько пар осталось найти (серые кружочки, превращающиеся в зеленые, когда вы находите 1 пару)."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在顶部面板上，您可以使用提示功能（灯泡图标），并查看还剩下多少对需要寻找（灰色圆圈，找到一对后会变为绿色）。"
           }
         }
       }
@@ -315,10 +905,34 @@
             "value" : "2. In the second game mode, the task is the same as in the first; however, the cards are no longer identical, and you must find logical pairs (see example below)."
           }
         },
-        "ru" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "2. En el segundo modo de juego, la tarea es la misma que en el primero; sin embargo, las cartas ya no son idénticas y debes encontrar pares lógicos (consulta el ejemplo a continuación)."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "2. Dans le deuxième mode de jeu, la tâche est la même que dans le premier ; toutefois, les cartes ne sont plus identiques et vous devez trouver des paires logiques (voir l'exemple ci-dessous)."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "2. दूसरे गेम मोड में, काम पहले वाले जैसा ही है; हालाँकि, अब कार्ड एक जैसे नहीं हैं और आपको लॉजिकल जोड़े खोजने होंगे (नीचे उदाहरण देखें)।"
+          }
+        },
+        "ru-RU" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "2. Во втором режиме игры вам предстоит тоже самое что и в 1, однако теперь карточки не одинаковы, необходимо искать логические пары карт (пример ниже)."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "2. 在第二种游戏模式中，任务与第一种相同；但此时卡片不再完全相同，你需要找出符合逻辑的配对（见下方示例）。"
           }
         }
       }
@@ -332,10 +946,34 @@
             "value" : "In addition to finding pairs, you will also need to look for sets of three or four such cards (the active mode will be indicated in the game). Future updates will introduce levels with time and click limits."
           }
         },
-        "ru" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Además de encontrar parejas, también deberás buscar grupos de tres o cuatro de estas cartas (el modo activo se indicará en el juego). Las futuras actualizaciones introducirán niveles con límites de tiempo y de clics."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "En plus de trouver des paires, vous devrez également rechercher des ensembles de trois ou quatre cartes de ce type (le mode actif sera indiqué dans le jeu). De futures mises à jour introduiront des niveaux avec des limites de temps et de clics."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "जोड़े खोजने के अलावा, आपको ऐसे तीन या चार कार्ड के सेट भी खोजने होंगे (गेम में एक्टिव मोड दिखाया जाएगा)। भविष्य के अपडेट में समय और क्लिक की सीमा वाले लेवल शामिल किए जाएंगे।"
+          }
+        },
+        "ru-RU" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Кроме того, кроме поиска пары, необходимо будет искать тройки или четверки таких карточек (включенный режим будет обозначаться в игре). Будущие изменения уровней с ограничением по времени и кликам."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "除了寻找成对的卡片外，你还需要寻找由三张或四张此类卡片组成的组合（游戏内会标示当前的匹配模式）。未来的更新将加入设有时间和点击次数限制的关卡。"
           }
         }
       }
@@ -349,10 +987,34 @@
             "value" : "Good luck!!!"
           }
         },
-        "ru" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¡¡¡Buena suerte!!!"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bonne chance!!!"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "आपको कामयाबी मिले!!!"
+          }
+        },
+        "ru-RU" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Удачи!!!"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "祝你好运！！！"
           }
         }
       }
@@ -366,10 +1028,34 @@
             "value" : "We are looking for couples (1-20 lvl)"
           }
         },
-        "ru" : {
+        "es" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
+            "value" : "Buscamos parejas (niveles 1-20)"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nous recherchons des couples (niveaux 1 à 20)."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "हम कपल्स (लेवल 1-20) की तलाश में हैं।"
+          }
+        },
+        "ru-RU" : {
+          "stringUnit" : {
+            "state" : "translated",
             "value" : "Мы ищем пары (1-20 ур)"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "我们正在寻找情侣玩家（1-20级）。"
           }
         }
       }
@@ -380,13 +1066,37 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "We are looking for 3 cards (21-65 lvl)"
+            "value" : "We are looking for 3 cards (21-55 lvl)"
           }
         },
-        "ru" : {
+        "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Мы ищем 3 карточки (21-65 ур)"
+            "value" : "Nosotros estamos buscando 3 cartas (21-55 lvl)"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nous recherchons 3 cartes (niveaux 21 à 55)."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "हमें 3 कार्ड (लेवल 21-55) चाहिए।"
+          }
+        },
+        "ru-RU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Мы ищем 3 карточки (21-55 ур)"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "我们正在寻找3张卡片（21-55级）。"
           }
         }
       }
@@ -397,13 +1107,37 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "We are looking for 4 cards (65 - 150 lvl)"
+            "value" : "We are looking for 4 cards (56 - 150 lvl)"
           }
         },
-        "ru" : {
+        "es" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Мы ищем 4 карточки (65 - 150 ур)"
+            "state" : "translated",
+            "value" : "Buscamos 4 cartas (niveles 56-150)."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nous recherchons 4 cartes (niveaux 56 à 150)."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "हमें 4 कार्ड (लेवल 56 - 150) चाहिए।"
+          }
+        },
+        "ru-RU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Мы ищем 4 карточки (56 - 150 ур)"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "We are looking for 4 cards (56 - 150 lvl)"
           }
         }
       }
@@ -417,10 +1151,34 @@
             "value" : "We're looking for fives."
           }
         },
-        "ru" : {
+        "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Мы ищем пятёрки."
+            "value" : "Buscamos cincos."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nous recherchons des billets de cinq."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "हम पाँच की तलाश में हैं।"
+          }
+        },
+        "ru-RU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Мы ищем пятёрки"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "我们在寻找评分为5的。"
           }
         }
       }
@@ -433,10 +1191,34 @@
             "value" : "Music"
           }
         },
-        "ru" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Música"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Musique"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "संगीत"
+          }
+        },
+        "ru-RU" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Музыка"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "音乐"
           }
         }
       }
@@ -449,10 +1231,34 @@
             "value" : "Sounds"
           }
         },
-        "ru" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sonidos"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sons"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ध्वनि"
+          }
+        },
+        "ru-RU" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Звуки"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "声音"
           }
         }
       }
@@ -465,10 +1271,34 @@
             "value" : "Level %lld"
           }
         },
-        "ru" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nivel %lld"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Niveau %lld"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "लेवल %lld"
+          }
+        },
+        "ru-RU" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Уровень %lld"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "第 %lld 关"
           }
         }
       }
@@ -481,10 +1311,34 @@
             "value" : "Notification"
           }
         },
-        "ru" : {
+        "es" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
+            "value" : "Notificación"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Notification"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "सूचना"
+          }
+        },
+        "ru-RU" : {
+          "stringUnit" : {
+            "state" : "translated",
             "value" : "Уведомление"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "通知"
           }
         }
       }
@@ -497,10 +1351,34 @@
             "value" : "ok"
           }
         },
-        "ru" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ok"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ok"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ठीक है"
+          }
+        },
+        "ru-RU" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "ок"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "好的"
           }
         }
       }
@@ -513,10 +1391,34 @@
             "value" : "Restart"
           }
         },
-        "ru" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reanudar"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Redémarrage"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "पुनः आरंभ करें"
+          }
+        },
+        "ru-RU" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Заново"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "重新启动"
           }
         }
       }
@@ -529,10 +1431,34 @@
             "value" : "Rules of the game"
           }
         },
-        "ru" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reglas del juego"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Règles du jeu"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "खेल के नियम"
+          }
+        },
+        "ru-RU" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Правила игры"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "游戏规则"
           }
         }
       }
@@ -545,10 +1471,34 @@
             "value" : "Start a difficult game"
           }
         },
-        "ru" : {
+        "es" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
+            "value" : "Empieza una partida difícil"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lancer une partie difficile"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "एक मुश्किल गेम शुरू करें"
+          }
+        },
+        "ru-RU" : {
+          "stringUnit" : {
+            "state" : "translated",
             "value" : "Начать сложную игру"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "开始一场高难度游戏"
           }
         }
       }
@@ -561,16 +1511,37 @@
             "value" : "Start an easy game"
           }
         },
-        "ru" : {
+        "es" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
+            "value" : "Empieza una partida fácil"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lancez une partie facile"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "एक आसान गेम शुरू करें"
+          }
+        },
+        "ru-RU" : {
+          "stringUnit" : {
+            "state" : "translated",
             "value" : "Начать легкую игру"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "开始一场简单的游戏"
           }
         }
       }
-    },
-    "Сброс" : {
-
     }
   },
   "version" : "1.2"

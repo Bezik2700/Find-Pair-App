@@ -236,7 +236,11 @@
 			knownRegions = (
 				en,
 				Base,
-				ru,
+				hi,
+				"ru-RU",
+				"zh-Hans",
+				es,
+				fr,
 			);
 			mainGroup = 5F99F1092FC0579900F6C9E6;
 			minimizedProjectReferenceProxies = 1;
@@ -605,6 +609,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Find-Pair-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Matcha;
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "demo-banner-yandex";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -641,6 +646,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Find-Pair-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Matcha;
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "demo-banner-yandex";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

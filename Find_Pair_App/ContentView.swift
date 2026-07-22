@@ -9,7 +9,7 @@ struct ContentView: View {
     @State private var showGameSetiings = false
     @State private var showDifficultyGame = false
     
-    @State private var addHints = 3
+    @State private var addHints = 10
     
     @State private var showAlert = false
     @State private var alertMessage = ""
